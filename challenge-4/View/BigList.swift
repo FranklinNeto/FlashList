@@ -9,7 +9,8 @@ import SwiftUI
 
 struct BigList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Aqui será a tela da Listona para quando o usario for pesquisar mais produtos")
+            .padding()
     }
 }
 

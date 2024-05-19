@@ -1,15 +1,14 @@
 //
-//  challenge_4App.swift
+//  CreatedListContainer.swift
 //  challenge-4
 //
-//  Created by Franklin Ferreira Rezende Neto on 16/05/24.
+//  Created by Franklin Ferreira Rezende Neto on 19/05/24.
 //
 
 import SwiftUI
 import SwiftData
 
-@main
-struct challenge_4App: App {
+struct CreatedListContainer: View {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -23,10 +22,8 @@ struct challenge_4App: App {
         }
     }()
 
-    var body: some Scene {
-        WindowGroup {
-            CreatedList()
-        }
-        .modelContainer(sharedModelContainer)
+    var body: some View {
+        CreatedList()
+            .modelContainer(sharedModelContainer)
     }
 }

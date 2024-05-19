@@ -9,7 +9,17 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack{
+
+            Text("Aqui será a tela inicial")
+            
+            NavigationLink(destination: Forms_1()){
+                Text("Ir para a Pergunta 1")
+             
+            }
+        }
+        
     }
 }
 
