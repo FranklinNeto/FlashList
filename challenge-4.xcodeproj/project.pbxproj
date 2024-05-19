@@ -85,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				DD52DF342BF67D2600CCC2D1 /* challenge-4 */,
-				DD52DF3D2BF67D2800CCC2D1 /* Preview Content */,
 				DD52DF332BF67D2600CCC2D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +104,7 @@
 				3BE012A22BF8F63C00391547 /* Model */,
 				3BE012A12BF8F55300391547 /* View */,
 				3BE012A32BF8F7AA00391547 /* Controller */,
+				DD52DF3D2BF67D2800CCC2D1 /* Preview Content */,
 				DD52DF3B2BF67D2800CCC2D1 /* Assets.xcassets */,
 			);
 			path = "challenge-4";
