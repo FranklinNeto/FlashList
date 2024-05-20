@@ -30,7 +30,6 @@ struct BigList: View {
             Product(name: "arroz", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "feijão", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "macarrão", price: 100, amount: 1, isLactose: false, isGluten: true, isVegan: true),
-            Product(name: "arroz", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "açucar", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "café", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "leite", price: 100, amount: 1, isLactose: true, isGluten: false, isVegan: true),
@@ -46,7 +45,7 @@ struct BigList: View {
             Product(name: "requeijão", price: 100, amount: 1, isLactose: true, isGluten: false, isVegan: true),
             Product(name: "iogurte", price: 100, amount: 1, isLactose: true, isGluten: false, isVegan: true)
         ]),
-        Category(name: "verduas", list: [
+        Category(name: "verduras", list: [
             Product(name: "alface", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "banana", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "batata", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
@@ -68,12 +67,13 @@ struct BigList: View {
     ]
     
     @State private var selecao: UUID?
+    @State private var searchText = ""
     
     
     var body: some View {
         NavigationView {
             List(selection: $selecao) {
-                ForEach(bigList) { category in
+                ForEach(filteredBigList) { category in
                     Section(header: Text(category.name)) {
                         ForEach(category.list) { product in
                             Text(product.name)
@@ -86,6 +86,23 @@ struct BigList: View {
             .listStyle(.sidebar)
             .toolbar {
                 EditButton()
+            }
+            .searchable(text: $searchText, prompt: "Buscar produtos")
+        }
+    }
+    
+    var filteredBigList: [Category] {
+        if searchText.isEmpty {
+            return bigList
+        } else {
+            return bigList.map { category in
+                let filteredProducts = category.list.filter { product in
+                    product.name.lowercased().contains(searchText.lowercased())
+                }
+                return Category(name: category.name, list: filteredProducts)
+            }
+            .filter { category in
+                !category.list.isEmpty
             }
         }
     }
