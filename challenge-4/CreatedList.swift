@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct CreatedList: View {
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
