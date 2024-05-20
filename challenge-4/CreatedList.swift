@@ -14,6 +14,11 @@ struct CreatedList: View {
     @Query private var items: [Item]
 
     var body: some View {
+        
+        NavigationLink(destination: BigList()){
+            Text("Ir para a Listona")
+         
+        }
         NavigationSplitView {
             List {
                 ForEach(items) { item in

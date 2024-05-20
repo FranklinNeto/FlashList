@@ -76,7 +76,17 @@ struct BigList: View {
                     ForEach(filteredBigList) { category in
                         Section(header: Text(category.name)) {
                             ForEach(category.list) { product in
-                                Text(product.name)
+                                HStack{
+                                    
+                                    Text(product.name)
+                                    Spacer()
+                                    Text("R$ \(String(product.price))")
+                                    
+                                }
+                               
+                                    
+                        
+                                
                             }
                         }
                         
