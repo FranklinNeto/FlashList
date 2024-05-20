@@ -9,7 +9,11 @@ import SwiftUI
 
 struct Forms_4: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Quarta Pergunta do Questionário")
+        NavigationLink(destination: CreatedList()){
+            Text("Ir para a Lista Criada")
+         
+        }
     }
 }
 

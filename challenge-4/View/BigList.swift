@@ -71,9 +71,6 @@ struct BigList: View {
     
     
     var body: some View {
-        
-        
-   
         NavigationView {
                 List(selection: $selecao) {
                     ForEach(filteredBigList) { category in

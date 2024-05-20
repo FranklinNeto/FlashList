@@ -9,10 +9,16 @@ import SwiftUI
 
 struct Forms_1: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Primeira Pergunta do Questionário")
+        
+        NavigationLink(destination: Forms_2()){
+            Text("Ir para a Pergunta 2")
+        }
     }
 }
 
 #Preview {
+    
+  
     Forms_1()
 }
