@@ -69,11 +69,17 @@ struct BigList: View {
     @State private var selecao: UUID?
     @State private var searchText = ""
     
+    @State private var listaFiltrada: [Category] = []
+        
+    @State private var userVegan: Bool = false
+    @State private var userLactoseIntolerant: Bool = false
+    @State private var userGlutenIntolerant: Bool = false
+    
     
     var body: some View {
         NavigationView {
                 List(selection: $selecao) {
-                    ForEach(filteredBigList) { category in
+                    ForEach(listaFiltrada) { category in
                         Section(header: Text(category.name)) {
                             ForEach(category.list) { product in
                                 HStack{
@@ -83,10 +89,6 @@ struct BigList: View {
                                     Text("R$ \(String(product.price))")
                                     
                                 }
-                               
-                                    
-                        
-                                
                             }
                         }
                         
@@ -94,12 +96,38 @@ struct BigList: View {
                 }
                 .navigationTitle("Todos os Produtos")
                 .listStyle(.sidebar)
-                .toolbar {
-                    EditButton()
+                .onAppear {
+                    GeneratingPersonalizedList()
                 }
                 .searchable(text: $searchText, prompt: "Buscar produtos")
             }
         }
+    
+    func GeneratingPersonalizedList() {
+        listaFiltrada = bigList.map { category in
+            let filteredProducts = category.list.filter { product in
+                var shouldInclude = true
+                    
+                if userVegan {
+                    shouldInclude = shouldInclude && product.isVegan
+                }
+                    
+                if userLactoseIntolerant {
+                    shouldInclude = shouldInclude && !product.isLactose
+                }
+                
+                if userGlutenIntolerant {
+                    shouldInclude = shouldInclude && !product.isGluten
+                }
+                    
+                return shouldInclude
+            }
+            return Category(name: category.name, list: filteredProducts)
+        }
+        .filter { category in
+            !category.list.isEmpty
+        }
+    }
         
     
     
