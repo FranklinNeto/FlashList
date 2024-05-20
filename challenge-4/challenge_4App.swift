@@ -25,7 +25,8 @@ struct challenge_4App: App {
     
     var body: some Scene {
         WindowGroup {
-            CreatedList()
+           
+            Home()
         }
         .modelContainer(sharedModelContainer)
     }
