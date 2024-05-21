@@ -71,7 +71,7 @@ struct BigList: View {
     
     @State private var listaFiltrada: [Category] = []
         
-    @State private var userVegan: Bool = false
+    @State private var userVegan: Bool = true
     @State private var userLactoseIntolerant: Bool = false
     @State private var userGlutenIntolerant: Bool = false
     
@@ -79,7 +79,7 @@ struct BigList: View {
     var body: some View {
         NavigationView {
                 List(selection: $selecao) {
-                    ForEach(listaFiltrada) { category in
+                    ForEach(filteredBigList) { category in
                         Section(header: Text(category.name)) {
                             ForEach(category.list) { product in
                                 HStack{
@@ -104,7 +104,7 @@ struct BigList: View {
         }
     
     func GeneratingPersonalizedList() {
-        listaFiltrada = bigList.map { category in
+       listaFiltrada = bigList.map { category in
             let filteredProducts = category.list.filter { product in
                 var shouldInclude = true
                     
@@ -133,9 +133,9 @@ struct BigList: View {
     
     var filteredBigList: [Category] {
         if searchText.isEmpty {
-            return bigList
+            return listaFiltrada
         } else {
-            return bigList.map { category in
+            return listaFiltrada.map { category in
                 let filteredProducts = category.list.filter { product in
                     product.name.lowercased().contains(searchText.lowercased())
                 }
