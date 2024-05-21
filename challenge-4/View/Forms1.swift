@@ -16,31 +16,39 @@ struct QuestionnaireView: View {
     var frequencies = ["Diária", "Semanal", "Mensal"]
     
     var body: some View {
-        Form {
-            Section(header: Text("Preferências")) {
-                Picker("Categoria preferida", selection: $selectedCategory) {
-                    ForEach(categories, id: \.self) {
-                        Text($0)
+        
+        VStack{
+            Form {
+                Section(header: Text("Preferências")) {
+                    Picker("Categoria preferida", selection: $selectedCategory) {
+                        ForEach(categories, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    Picker("Frequência de compras", selection: $selectedFrequency) {
+                        ForEach(frequencies, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    Stepper(value: $numberOfPeople, in: 1...10) {
+                        Text("Número de pessoas: \(numberOfPeople)")
                     }
                 }
-                Picker("Frequência de compras", selection: $selectedFrequency) {
-                    ForEach(frequencies, id: \.self) {
-                        Text($0)
-                    }
-                }
-                Stepper(value: $numberOfPeople, in: 1...10) {
-                    Text("Número de pessoas: \(numberOfPeople)")
-                }
+                //            NavigationLink(destination: ContentView() {
+                //                Text("Gerar Lista de Compras")
+                //            }
             }
-//            NavigationLink(destination: ContentView() {
-//                Text("Gerar Lista de Compras")
-//            }
+            .navigationTitle("Questionário")
+            
+            Text("Primeira Pergunta do Questionário")
+            
+            NavigationLink(destination: Forms_2()){
+                Text("Ir para a Pergunta 2")
+            }
         }
-        .navigationTitle("Questionário")
     }
+    
 }
-
-
 
 
 
@@ -74,5 +82,7 @@ struct QuestionnaireView: View {
 //}
 
 #Preview {
+
     QuestionnaireView()
+
 }

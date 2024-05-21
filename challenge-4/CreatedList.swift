@@ -8,11 +8,17 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct CreatedList: View {
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
     var body: some View {
+        
+        NavigationLink(destination: BigList()){
+            Text("Ir para a Listona")
+         
+        }
         NavigationSplitView {
             List {
                 ForEach(items) { item in
@@ -56,6 +62,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    CreatedList()
         .modelContainer(for: Item.self, inMemory: true)
 }
