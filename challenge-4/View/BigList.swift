@@ -25,7 +25,7 @@ struct BigList: View {
         let list: [Product]
     }
     
-    @State var bigList: [Category] = [
+    /*@State */var bigList: [Category] = [
         Category(name: "mercearia", list: [
             Product(name: "arroz", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
             Product(name: "feijão", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
