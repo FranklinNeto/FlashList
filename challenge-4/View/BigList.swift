@@ -85,7 +85,7 @@ struct BigList: View {
                                 }
                                
                                     
-                        
+    
                                 
                             }
                         }
