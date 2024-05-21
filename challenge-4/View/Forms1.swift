@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-
-
-struct Forms_1: View {
-    
+struct QuestionnaireView: View {
     @State private var selectedCategory = "Proteínas"
     @State private var selectedFrequency = "Semanal"
     @State private var numberOfPeople = 1
@@ -19,7 +16,7 @@ struct Forms_1: View {
     var frequencies = ["Diária", "Semanal", "Mensal"]
     
     var body: some View {
-        Form{
+        Form {
             Section(header: Text("Preferências")) {
                 Picker("Categoria preferida", selection: $selectedCategory) {
                     ForEach(categories, id: \.self) {
@@ -35,13 +32,14 @@ struct Forms_1: View {
                     Text("Número de pessoas: \(numberOfPeople)")
                 }
             }
-            NavigationLink(destination: ContentView(selectedCategory: selectedCategory, numberOfPeople: numberOfPeople)) {
-                Text("Gerar Lista de Compras")
-            }
+//            NavigationLink(destination: ContentView() {
+//                Text("Gerar Lista de Compras")
+//            }
         }
         .navigationTitle("Questionário")
     }
 }
+
 
 
 
@@ -73,8 +71,8 @@ struct Forms_1: View {
 //
 //
 //    }
-}
+//}
 
 #Preview {
-    Forms_1()
+    QuestionnaireView()
 }
