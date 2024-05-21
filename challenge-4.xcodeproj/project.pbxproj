@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BE012A52BF8F87900391547 /* Forms1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012A42BF8F87900391547 /* Forms1.swift */; };
-		3BE012A72BF8F88600391547 /* Forms2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012A62BF8F88600391547 /* Forms2.swift */; };
-		3BE012A92BF8F89000391547 /* Forms3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012A82BF8F89000391547 /* Forms3.swift */; };
-		3BE012AB2BF8F8BC00391547 /* Forms4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012AA2BF8F8BC00391547 /* Forms4.swift */; };
 		3BE012AD2BF8F8FF00391547 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012AC2BF8F8FF00391547 /* Home.swift */; };
 		3BE012AF2BF8F95A00391547 /* ModalEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012AE2BF8F95A00391547 /* ModalEdition.swift */; };
 		3BE012B12BF8FC1D00391547 /* BigList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012B02BF8FC1D00391547 /* BigList.swift */; };
@@ -23,10 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3BE012A42BF8F87900391547 /* Forms1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms1.swift; sourceTree = "<group>"; };
-		3BE012A62BF8F88600391547 /* Forms2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms2.swift; sourceTree = "<group>"; };
-		3BE012A82BF8F89000391547 /* Forms3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms3.swift; sourceTree = "<group>"; };
-		3BE012AA2BF8F8BC00391547 /* Forms4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms4.swift; sourceTree = "<group>"; };
 		3BE012AC2BF8F8FF00391547 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3BE012AE2BF8F95A00391547 /* ModalEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEdition.swift; sourceTree = "<group>"; };
 		3BE012B02BF8FC1D00391547 /* BigList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigList.swift; sourceTree = "<group>"; };
@@ -54,10 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				3BE012AC2BF8F8FF00391547 /* Home.swift */,
-				3BE012A42BF8F87900391547 /* Forms1.swift */,
-				3BE012A62BF8F88600391547 /* Forms2.swift */,
-				3BE012A82BF8F89000391547 /* Forms3.swift */,
-				3BE012AA2BF8F8BC00391547 /* Forms4.swift */,
 				3BE012B02BF8FC1D00391547 /* BigList.swift */,
 				3BE012AE2BF8F95A00391547 /* ModalEdition.swift */,
 			);
@@ -188,12 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE012A52BF8F87900391547 /* Forms1.swift in Sources */,
 				DD52DF382BF67D2600CCC2D1 /* CreatedList.swift in Sources */,
-				3BE012A92BF8F89000391547 /* Forms3.swift in Sources */,
-				3BE012AB2BF8F8BC00391547 /* Forms4.swift in Sources */,
 				DD52DF3A2BF67D2600CCC2D1 /* Item.swift in Sources */,
-				3BE012A72BF8F88600391547 /* Forms2.swift in Sources */,
 				3BE012B12BF8FC1D00391547 /* BigList.swift in Sources */,
 				3BE012AF2BF8F95A00391547 /* ModalEdition.swift in Sources */,
 				3BE012AD2BF8F8FF00391547 /* Home.swift in Sources */,
