@@ -8,7 +8,7 @@
 import SwiftUI
 
 class QuizViewModel: ObservableObject {
-    @Published  var currentQuestionIndex: Int = 0
+    @Published var currentQuestionIndex: Int = 0
     @Published var selectedChoices: [String: [String]] = [:] // Dictionary to store selected choices
     
     

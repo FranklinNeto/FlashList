@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B74F4D02BFE6F0F0088E333 /* BigListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74F4CF2BFE6F0F0088E333 /* BigListViewModel.swift */; };
+		3B74F4D22BFE7F360088E333 /* BigListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B74F4D12BFE7F360088E333 /* BigListTest.swift */; };
 		3BE012AD2BF8F8FF00391547 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012AC2BF8F8FF00391547 /* Home.swift */; };
 		3BE012AF2BF8F95A00391547 /* ModalEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012AE2BF8F95A00391547 /* ModalEdition.swift */; };
-		3BE012B12BF8FC1D00391547 /* BigList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012B02BF8FC1D00391547 /* BigList.swift */; };
+		3BE012B12BF8FC1D00391547 /* BigListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012B02BF8FC1D00391547 /* BigListView.swift */; };
 		3BE012B32BF8FCB000391547 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012B22BF8FCB000391547 /* QuizViewModel.swift */; };
 		DD52DF362BF67D2600CCC2D1 /* challenge_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */; };
 		DD52DF382BF67D2600CCC2D1 /* CreatedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52DF372BF67D2600CCC2D1 /* CreatedList.swift */; };
@@ -22,9 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B74F4CF2BFE6F0F0088E333 /* BigListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigListViewModel.swift; sourceTree = "<group>"; };
+		3B74F4D12BFE7F360088E333 /* BigListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigListTest.swift; sourceTree = "<group>"; };
 		3BE012AC2BF8F8FF00391547 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3BE012AE2BF8F95A00391547 /* ModalEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEdition.swift; sourceTree = "<group>"; };
-		3BE012B02BF8FC1D00391547 /* BigList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigList.swift; sourceTree = "<group>"; };
+		3BE012B02BF8FC1D00391547 /* BigListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigListView.swift; sourceTree = "<group>"; };
 		3BE012B22BF8FCB000391547 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		DD52DF322BF67D2600CCC2D1 /* challenge-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_4App.swift; sourceTree = "<group>"; };
@@ -53,7 +57,8 @@
 			children = (
 				3BE012AC2BF8F8FF00391547 /* Home.swift */,
 				DD8AA80A2BFD2EB700A36BE4 /* QuestionView.swift */,
-				3BE012B02BF8FC1D00391547 /* BigList.swift */,
+				3BE012B02BF8FC1D00391547 /* BigListView.swift */,
+				3B74F4D12BFE7F360088E333 /* BigListTest.swift */,
 				3BE012AE2BF8F95A00391547 /* ModalEdition.swift */,
 			);
 			path = View;
@@ -73,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE012B22BF8FCB000391547 /* QuizViewModel.swift */,
+				3B74F4CF2BFE6F0F0088E333 /* BigListViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,10 +192,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8AA80B2BFD2EB700A36BE4 /* QuestionView.swift in Sources */,
+				3B74F4D02BFE6F0F0088E333 /* BigListViewModel.swift in Sources */,
 				DD52DF382BF67D2600CCC2D1 /* CreatedList.swift in Sources */,
 				DD52DF3A2BF67D2600CCC2D1 /* Item.swift in Sources */,
-				3BE012B12BF8FC1D00391547 /* BigList.swift in Sources */,
+				3BE012B12BF8FC1D00391547 /* BigListView.swift in Sources */,
 				3BE012AF2BF8F95A00391547 /* ModalEdition.swift in Sources */,
+				3B74F4D22BFE7F360088E333 /* BigListTest.swift in Sources */,
 				DD8AA8092BFD2CBE00A36BE4 /* ProductModel.swift in Sources */,
 				3BE012AD2BF8F8FF00391547 /* Home.swift in Sources */,
 				DD52DF362BF67D2600CCC2D1 /* challenge_4App.swift in Sources */,
