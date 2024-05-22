@@ -65,8 +65,7 @@ struct QuestionView: View {
                 VStack {
                     NavigationLink(destination: {
                         let quizViewModel = viewModel
-                        let bigListViewModel = BigListViewModel(viewModel: quizViewModel)
-                        BigList(viewModel: quizViewModel, bigListViewModel: bigListViewModel)
+                        BigListTest(viewModel: quizViewModel)
                     }) {
                         Text("Ir para lista personalizada")
                             .padding()
