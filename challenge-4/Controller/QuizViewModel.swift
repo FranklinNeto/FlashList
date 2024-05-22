@@ -8,11 +8,10 @@
 import SwiftUI
 
 class QuizViewModel: ObservableObject {
+
     @Published  var currentQuestionIndex: Int = 0
     @Published var selectedChoices: [String: [String]] = [:]
-    
-    
-  
+
     let questions: [Question] = [
         Question(text: "Você mora com quantas pessoas?", choices: ["Moro sozinho", "Moro com 1 pessoa", "Moro com 2 ou mais pessoas"], key: "pessoas", multiple: false),
         Question(text: "Para quanto tempo são as compras?", choices: ["1 semana", "15 dias", "mais de 20 dias"], key: "frequencia", multiple: false),

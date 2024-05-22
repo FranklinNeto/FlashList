@@ -1,16 +1,15 @@
 //
-//  BigList.swift
+//  BigListTest.swift
 //  challenge-4
 //
-//  Created by Thales Araújo on 18/05/24.
+//  Created by Thales Araújo on 22/05/24.
 //
 
 import SwiftUI
 
-struct BigList: View {
+struct BigListTest: View {
     @ObservedObject var viewModel: QuizViewModel
-    
-    
+
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
             Product(name: "arroz", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
@@ -164,5 +163,5 @@ struct BigList: View {
     }
 }
 #Preview {
-    BigList(viewModel: QuizViewModel())
+    BigListTest(viewModel: QuizViewModel())
 }

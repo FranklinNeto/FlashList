@@ -5,17 +5,16 @@
 //  Created by Franklin Ferreira Rezende Neto on 21/05/24.
 //
 
-
-
 import SwiftUI
 
 struct QuestionView: View {
     @ObservedObject var viewModel: QuizViewModel
-  //  @ObservedObject var bigListModel: BigList
+    
+    
     
     var body: some View {
         VStack {
-            if viewModel.currentQuestionIndex < viewModel.questions.count  {
+            if viewModel.currentQuestionIndex < viewModel.questions.count {
                 VStack {
                     Text(viewModel.currentQuestion.text)
                         .font(.title)
@@ -34,43 +33,19 @@ struct QuestionView: View {
                         .padding(.vertical, 4)
                     }
                     
-                    
-                    /////
-                                       
-                    
-//                                           Button(action: {
-//                                               viewModel.selectChoice(choice: choice)
-//                                           }) {
-//                                               Text(choice)
-//                                                   .padding()
-//                                                   .background(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ? Color.blue : Color.gray)
-//                                                   .foregroundColor(.white)
-//                                                   .cornerRadius(10)
-//                                           }
-//                                           .padding(.vertical, 4)
-//                                       }
-//                                   }
-//                                   .padding()
-                    
-                    
-                    ////
-            
-                    
-                    
                     Spacer()
                     
-                    HStack{
-                        if (viewModel.currentQuestionIndex > 0) {
+                    HStack {
+                        if viewModel.currentQuestionIndex > 0 {
                             Button(action: {
                                 viewModel.previousQuestion()
                             }) {
                                 Text("Anterior")
                                     .padding()
-                                    .background( Color.gray)
+                                    .background(Color.gray)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
-                            // .disabled(!viewModel.canMoveToNextQuestion)
                             .padding()
                         }
                         
@@ -88,53 +63,37 @@ struct QuestionView: View {
                     }
                 }
                 .padding()
-                            } else {
-                                VStack {
-                                    Text("Produtos Recomendados")
-                                
-                                        .font(.largeTitle)
-                                        .padding()
-                                    
-                                    
-                                   
-                                    
-                                    Button(action: {
-                                        viewModel.restartQuiz()
-                                    }) {
-                                        Text("Refazer Questionário")
-                                            .padding()
-                                            .background(Color.blue)
-                                            .foregroundColor(.white)
-                                            .cornerRadius(10)
-                                    }
-                                    .padding(.top, 20)
-                                    
-                                    
-                                }
-                                
-                
-                                    /*List(viewModel.filteredProducts()) { product in*/
-                //                        Text(product.name)
-                //                    }
-                //
-                //
-                //
-                //
-                //
-                //            }
+            } else {
+                VStack {
+                    NavigationLink(destination: {
+                        let quizViewModel = viewModel
+                        BigListTest(viewModel: quizViewModel)
+                    }) {
+                        Text("Ir para lista personalizada")
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
+                    Button(action: {
+                        viewModel.restartQuiz()
+                    }) {
+                        Text("Refazer Questionário")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding(.top, 20)
+                }
             }
+
         }.navigationBarBackButtonHidden(false)
+
     }
-    
-    
 }
-
-
-
 
 #Preview {
     QuestionView(viewModel: QuizViewModel())
 }
-
-
-
