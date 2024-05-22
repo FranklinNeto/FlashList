@@ -24,11 +24,8 @@ struct Home: View {
                     Text("Ir para a Pergunta 1")
                     
                 }
-                
-          
             }
         }
-        
     }
 }
 #Preview {

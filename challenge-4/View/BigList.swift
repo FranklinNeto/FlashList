@@ -11,22 +11,6 @@ struct BigList: View {
     @ObservedObject var viewModel: QuizViewModel
     
     
-    //    struct Product: Identifiable {
-    //        let id = UUID()
-    //        let name: String
-    //        var price: Int
-    //        var amount: Int
-    //        let isLactose: Bool
-    //        let isGluten: Bool
-    //        let isVegan: Bool
-    //    }
-    //
-    //    struct Category: Identifiable {
-    //        let id = UUID()
-    //        let name: String
-    //        let list: [Product]
-    //    }
-    
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
             Product(name: "arroz", price: 100, amount: 1, isLactose: false, isGluten: false, isVegan: true),
@@ -153,10 +137,6 @@ struct BigList: View {
     }
     
     
-    //userVegan: Bool = true
-    // userLactoseIntolerant: Bool = false
-    // userGlutenIntolerant: Bool = false
-    
     func capturingUserFoodRestritions() {
         if !viewModel.selectedChoices.isEmpty{
             if let listaDeRestricoes = viewModel.selectedChoices["restricao"] {
@@ -164,6 +144,7 @@ struct BigList: View {
                     switch restricao {
                     case "Intolerância à glúten":
                         userGlutenIntolerant = true
+                        print(userVegan)
                     case "Intolerância à lactose":
                         userLactoseIntolerant = true
                     case "Veganismo":

@@ -123,7 +123,7 @@ struct QuestionView: View {
                 //
                 //            }
             }
-        }.navigationBarBackButtonHidden(true)
+        }.navigationBarBackButtonHidden(false)
     }
     
     
