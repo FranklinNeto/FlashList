@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct BigList: View {
+    @ObservedObject var viewModel: QuizViewModel
     
-    struct Product: Identifiable {
-        let id = UUID()
-        let name: String
-        var price: Int
-        var amount: Int
-        let isLactose: Bool
-        let isGluten: Bool
-        let isVegan: Bool
-    }
     
-    struct Category: Identifiable {
-        let id = UUID()
-        let name: String
-        let list: [Product]
-    }
+    //    struct Product: Identifiable {
+    //        let id = UUID()
+    //        let name: String
+    //        var price: Int
+    //        var amount: Int
+    //        let isLactose: Bool
+    //        let isGluten: Bool
+    //        let isVegan: Bool
+    //    }
+    //
+    //    struct Category: Identifiable {
+    //        let id = UUID()
+    //        let name: String
+    //        let list: [Product]
+    //    }
     
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
@@ -69,49 +71,52 @@ struct BigList: View {
     @State private var selecao: UUID?
     @State private var searchText = ""
     
-    @State private var listaFiltrada: [Category] = []
-        
-    @State private var userVegan: Bool = true
-    @State private var userLactoseIntolerant: Bool = false
-    @State private var userGlutenIntolerant: Bool = false
+    @State var listaFiltrada: [Category] = []
+    
+    @State var userVegan: Bool = false
+    @State var userLactoseIntolerant: Bool = false
+    @State var userGlutenIntolerant: Bool = false
     
     
     var body: some View {
         NavigationView {
-                List(selection: $selecao) {
-                    ForEach(filteredBigList) { category in
-                        Section(header: Text(category.name)) {
-                            ForEach(category.list) { product in
-                                HStack{
-                                    
-                                    Text(product.name)
-                                    Spacer()
-                                    Text("R$ \(String(product.price))")
-                                    
-                                }
+            List(selection: $selecao) {
+                ForEach(filteredBigList) { category in
+                    Section(header: Text(category.name)) {
+                        ForEach(category.list) { product in
+                            HStack{
+                                
+                                Text(product.name)
+                                Spacer()
+                                Text("R$ \(String(product.price))")
+                                
                             }
                         }
-                        
                     }
+                    
                 }
-                .navigationTitle("Todos os Produtos")
-                .listStyle(.sidebar)
-                .onAppear {
-                    GeneratingPersonalizedList()
-                }
-                .searchable(text: $searchText, prompt: "Buscar produtos")
             }
+            .navigationTitle("Todos os Produtos")
+            .listStyle(.sidebar)
+            .onAppear {
+                
+                generatingPersonalizedList()
+            }
+            .searchable(text: $searchText, prompt: "Buscar produtos")
         }
+    }
     
-    func GeneratingPersonalizedList() {
-       listaFiltrada = bigList.map { category in
+    func generatingPersonalizedList() {
+        
+        capturingUserFoodRestritions()
+        listaFiltrada = bigList.map { category in
             let filteredProducts = category.list.filter { product in
                 var shouldInclude = true
-                    
+                
                 if userVegan {
                     shouldInclude = shouldInclude && product.isVegan
                 }
-                    
+                
                 if userLactoseIntolerant {
                     shouldInclude = shouldInclude && !product.isLactose
                 }
@@ -119,7 +124,7 @@ struct BigList: View {
                 if userGlutenIntolerant {
                     shouldInclude = shouldInclude && !product.isGluten
                 }
-                    
+                
                 return shouldInclude
             }
             return Category(name: category.name, list: filteredProducts)
@@ -128,7 +133,7 @@ struct BigList: View {
             !category.list.isEmpty
         }
     }
-        
+    
     
     
     var filteredBigList: [Category] {
@@ -146,8 +151,37 @@ struct BigList: View {
             }
         }
     }
+    
+    
+    //userVegan: Bool = true
+    // userLactoseIntolerant: Bool = false
+    // userGlutenIntolerant: Bool = false
+    
+    func capturingUserFoodRestritions() {
+        if !viewModel.selectedChoices.isEmpty{
+            if let listaDeRestricoes = viewModel.selectedChoices["restricao"] {
+                for restricao in listaDeRestricoes {
+                    switch restricao {
+                    case "Intolerância à glúten":
+                        userGlutenIntolerant = true
+                    case "Intolerância à lactose":
+                        userLactoseIntolerant = true
+                    case "Veganismo":
+                        userVegan = true
+                        
+                    case "Não possuo":
+                        userVegan = false
+                        userLactoseIntolerant = false
+                        userGlutenIntolerant = false
+                        
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
 }
-
 #Preview {
-    BigList()
+    BigList(viewModel: QuizViewModel())
 }

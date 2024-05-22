@@ -20,12 +20,12 @@ struct Home: View {
                     .padding()
                 
                 
-                NavigationLink(destination: QuestionnaireView()){
+                NavigationLink(destination: QuestionView(viewModel: QuizViewModel())){
                     Text("Ir para a Pergunta 1")
                     
                 }
                 
-                
+          
             }
         }
         

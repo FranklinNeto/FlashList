@@ -15,7 +15,7 @@ struct CreatedList: View {
 
     var body: some View {
         
-        NavigationLink(destination: BigList()){
+        NavigationLink(destination: BigList(viewModel: QuizViewModel())){
             Text("Ir para a Listona")
          
         }
