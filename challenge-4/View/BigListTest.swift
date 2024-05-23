@@ -127,6 +127,8 @@ struct BigListTest: View {
     func generatingPersonalizedList() {
         
         capturingUserFoodRestritions()
+        capturingUserFoodPreferences()
+        
         listaFiltrada = bigList.map { category in
             let filteredProducts = category.list.filter { product in
                 var shouldInclude = true
@@ -141,6 +143,21 @@ struct BigListTest: View {
                 
                 if userGlutenIntolerant {
                     shouldInclude = shouldInclude && !product.isGluten
+                }
+                
+                if cafeDaManha {
+                    shouldInclude = shouldInclude && product.isCafe
+                }
+                
+                if almoco {
+                    shouldInclude = shouldInclude && product.isAlmoco
+                }
+                if lancheDaTarde {
+                    shouldInclude = shouldInclude && product.isLanche
+                }
+                
+                if jantar {
+                    shouldInclude = shouldInclude && product.isJanta
                 }
                 
                 return shouldInclude
