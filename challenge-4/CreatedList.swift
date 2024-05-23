@@ -15,7 +15,7 @@
 //
 //    var body: some View {
 //        
-//        NavigationLink(destination: BigList(viewModel: QuizViewModel())){
+//        NavigationLink(destination: BigListTest(viewModel: QuizViewModel())){
 //            Text("Ir para a Listona")
 //         
 //        }

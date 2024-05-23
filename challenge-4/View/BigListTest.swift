@@ -145,20 +145,40 @@ struct BigListTest: View {
                     shouldInclude = shouldInclude && !product.isGluten
                 }
                 
-                if cafeDaManha {
-                    shouldInclude = shouldInclude && product.isCafe
-                }
                 
-                if almoco {
-                    shouldInclude = shouldInclude && product.isAlmoco
-                }
-                if lancheDaTarde {
-                    shouldInclude = shouldInclude && product.isLanche
-                }
+                var shouldIncludeMeal = false
+                     if cafeDaManha {
+                         shouldIncludeMeal = shouldIncludeMeal || product.isCafe
+                     }
+                     if almoco {
+                         shouldIncludeMeal = shouldIncludeMeal || product.isAlmoco
+                     }
+                     if lancheDaTarde {
+                         shouldIncludeMeal = shouldIncludeMeal || product.isLanche
+                     }
+                     if jantar {
+                         shouldIncludeMeal = shouldIncludeMeal || product.isJanta
+                     }
+                     
+                     // Se alguma preferência de refeição foi marcada, verificamos se o produto atende a pelo menos uma delas
+                     if cafeDaManha || almoco || lancheDaTarde || jantar {
+                         shouldInclude = shouldInclude && shouldIncludeMeal
+                     }
                 
-                if jantar {
-                    shouldInclude = shouldInclude && product.isJanta
-                }
+//                if cafeDaManha {
+//                    shouldInclude = shouldInclude || product.isCafe
+//                }
+//                
+//                if almoco {
+//                    shouldInclude = shouldInclude || product.isAlmoco
+//                }
+//                if lancheDaTarde {
+//                    shouldInclude = shouldInclude || product.isLanche
+//                }
+//                
+//                if jantar {
+//                    shouldInclude = shouldInclude || product.isJanta
+//                }
                 
                 return shouldInclude
             }
