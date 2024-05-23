@@ -252,6 +252,27 @@ struct BigListTest: View {
             }
         }
     }
+    
+    
+    //func capturingUserFoodQuantity(){
+   //
+   //        if !viewModel.selectedChoices.isEmpty{
+   //            if let listaDeQuantidadeDePessoas = viewModel.selectedChoices["pessoas"] {
+   //                for quantidadeDePessoas in listaDeQuantidadeDePessoas {
+   //                    switch quantidadeDePessoas {
+   //                    case "Moro sozinho":
+   //                        listaFiltrada.category
+   //                    case "Moro com 1 pessoa":
+   //                        almoco = true
+   //                    case "Moro com 2 ou mais pessoas":
+   //                        lancheDaTarde = true
+   //                    default:
+   //                        break
+   //                    }
+   //                }
+   //            }
+   //        }
+   //    }
 }
 #Preview {
     BigListTest(viewModel: QuizViewModel())
