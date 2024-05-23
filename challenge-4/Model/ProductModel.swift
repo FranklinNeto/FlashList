@@ -19,6 +19,10 @@ struct Product: Identifiable {
     let isAlmoco: Bool
     let isLanche: Bool
     let isJanta: Bool
+    
+    var priceTotal: Double {
+        return Double(price) * Double(amount)
+    }
 }
 
 struct Category: Identifiable {

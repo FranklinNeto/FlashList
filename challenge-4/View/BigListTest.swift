@@ -95,7 +95,8 @@ struct BigListTest: View {
     @State var lancheDaTarde: Bool = false
     @State var jantar: Bool = false
     
-    @State var multiplicador: Int = 1  // Variável para armazenar o multiplicador de quantidade
+    @State var multiplicadorPessoas: Int = 1  // Variável para armazenar o multiplicador de quantidade
+    @State var multiplicadorFrequencia: Int = 1  // Variável para armazenar o multiplicador de frequencia
     
     
     var body: some View {
@@ -110,6 +111,8 @@ struct BigListTest: View {
                                 Spacer()
                                 Text("R$ \(String(product.price))")
                                 Text("\(product.amount)")
+                                Text("Total: R$ \(String(format: "%.2f", product.priceTotal))")
+                                
                                 
                             }
                         }
@@ -132,6 +135,7 @@ struct BigListTest: View {
         capturingUserFoodRestritions()
         capturingUserFoodPreferences()
         capturingUserFoodQuantity()
+        capturingUserFoodFrequency()
         
         listaFiltrada = bigList.map { category in
             let filteredProducts = category.list.filter { product in
@@ -188,7 +192,8 @@ struct BigListTest: View {
             }
             return Category(name: category.name, list: filteredProducts.map { product in
                 var adjustedProduct = product
-                adjustedProduct.amount *= multiplicador
+                adjustedProduct.amount *= multiplicadorPessoas
+                adjustedProduct.amount *= multiplicadorFrequencia
                 return adjustedProduct
             })
         }
@@ -263,23 +268,46 @@ struct BigListTest: View {
     
     
     func capturingUserFoodQuantity() {
-            if !viewModel.selectedChoices.isEmpty {
-                if let listaDeQuantidadeDePessoas = viewModel.selectedChoices["pessoas"] {
-                    for quantidadeDePessoas in listaDeQuantidadeDePessoas {
-                        switch quantidadeDePessoas {
-                        case "Moro sozinho":
-                            multiplicador = 1
-                        case "Moro com 1 pessoa":
-                            multiplicador = 2
-                        case "Moro com 2 ou mais pessoas":
-                            multiplicador = 3
-                        default:
-                            break
-                        }
+        if !viewModel.selectedChoices.isEmpty {
+            if let listaDeQuantidadeDePessoas = viewModel.selectedChoices["pessoas"] {
+                for quantidadeDePessoas in listaDeQuantidadeDePessoas {
+                    switch quantidadeDePessoas {
+                    case "Moro sozinho":
+                        multiplicadorPessoas = 1
+                    case "Moro com 1 pessoa":
+                        multiplicadorPessoas = 2
+                    case "Moro com 2 ou mais pessoas":
+                        multiplicadorPessoas = 3
+                    default:
+                        break
                     }
                 }
             }
         }
+    }
+    
+    func capturingUserFoodFrequency() {
+        if !viewModel.selectedChoices.isEmpty {
+            if let listaDeFrequencia = viewModel.selectedChoices["frequencia"] {
+                for quantidadeFrequencia in listaDeFrequencia {
+                    switch quantidadeFrequencia {
+                    case "1 semana":
+                        multiplicadorFrequencia = 1
+                    case "15 dias":
+                        multiplicadorFrequencia = 2
+                    case "30 dias":
+                        multiplicadorFrequencia = 4
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+
+
+    
     
 }
 #Preview {
