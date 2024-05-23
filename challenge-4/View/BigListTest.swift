@@ -95,6 +95,8 @@ struct BigListTest: View {
     @State var lancheDaTarde: Bool = false
     @State var jantar: Bool = false
     
+    @State var multiplicador: Int = 1  // Variável para armazenar o multiplicador de quantidade
+    
     
     var body: some View {
         NavigationView {
@@ -107,6 +109,7 @@ struct BigListTest: View {
                                 Text(product.name)
                                 Spacer()
                                 Text("R$ \(String(product.price))")
+                                Text("\(product.amount)")
                                 
                             }
                         }
@@ -128,6 +131,7 @@ struct BigListTest: View {
         
         capturingUserFoodRestritions()
         capturingUserFoodPreferences()
+        capturingUserFoodQuantity()
         
         listaFiltrada = bigList.map { category in
             let filteredProducts = category.list.filter { product in
@@ -182,7 +186,11 @@ struct BigListTest: View {
                 
                 return shouldInclude
             }
-            return Category(name: category.name, list: filteredProducts)
+            return Category(name: category.name, list: filteredProducts.map { product in
+                var adjustedProduct = product
+                adjustedProduct.amount *= multiplicador
+                return adjustedProduct
+            })
         }
         .filter { category in
             !category.list.isEmpty
@@ -254,25 +262,25 @@ struct BigListTest: View {
     }
     
     
-    //func capturingUserFoodQuantity(){
-   //
-   //        if !viewModel.selectedChoices.isEmpty{
-   //            if let listaDeQuantidadeDePessoas = viewModel.selectedChoices["pessoas"] {
-   //                for quantidadeDePessoas in listaDeQuantidadeDePessoas {
-   //                    switch quantidadeDePessoas {
-   //                    case "Moro sozinho":
-   //                        listaFiltrada.category
-   //                    case "Moro com 1 pessoa":
-   //                        almoco = true
-   //                    case "Moro com 2 ou mais pessoas":
-   //                        lancheDaTarde = true
-   //                    default:
-   //                        break
-   //                    }
-   //                }
-   //            }
-   //        }
-   //    }
+    func capturingUserFoodQuantity() {
+            if !viewModel.selectedChoices.isEmpty {
+                if let listaDeQuantidadeDePessoas = viewModel.selectedChoices["pessoas"] {
+                    for quantidadeDePessoas in listaDeQuantidadeDePessoas {
+                        switch quantidadeDePessoas {
+                        case "Moro sozinho":
+                            multiplicador = 1
+                        case "Moro com 1 pessoa":
+                            multiplicador = 2
+                        case "Moro com 2 ou mais pessoas":
+                            multiplicador = 3
+                        default:
+                            break
+                        }
+                    }
+                }
+            }
+        }
+    
 }
 #Preview {
     BigListTest(viewModel: QuizViewModel())
