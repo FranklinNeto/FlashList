@@ -15,6 +15,10 @@ struct Product: Identifiable {
     let isLactose: Bool
     let isGluten: Bool
     let isVegan: Bool
+    let isCafe: Bool
+    let isAlmoco: Bool
+    let isLanche: Bool
+    let isJanta: Bool
 }
 
 struct Category: Identifiable {
