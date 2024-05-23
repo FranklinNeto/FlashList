@@ -60,6 +60,11 @@ struct BigListTest: View {
     @State var userLactoseIntolerant: Bool = false
     @State var userGlutenIntolerant: Bool = false
     
+    @State var cafeDaManha: Bool = false
+    @State var almoco: Bool = false
+    @State var lancheDaTarde: Bool = false
+    @State var jantar: Bool = false
+    
     
     var body: some View {
         NavigationView {
@@ -79,7 +84,7 @@ struct BigListTest: View {
                     
                 }
             }
-            .navigationTitle("Todos os Produtos")
+            .navigationTitle("Lista Gerada Para Voce")
             .listStyle(.sidebar)
             .onAppear {
                 
@@ -117,8 +122,6 @@ struct BigListTest: View {
         }
     }
     
-    
-    
     var filteredBigList: [Category] {
         if searchText.isEmpty {
             return listaFiltrada
@@ -143,7 +146,6 @@ struct BigListTest: View {
                     switch restricao {
                     case "Intolerância à glúten":
                         userGlutenIntolerant = true
-                        print(userVegan)
                     case "Intolerância à lactose":
                         userLactoseIntolerant = true
                     case "Veganismo":
@@ -154,6 +156,28 @@ struct BigListTest: View {
                         userLactoseIntolerant = false
                         userGlutenIntolerant = false
                         
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+
+    func capturingUserFoodPreferences() {
+        if !viewModel.selectedChoices.isEmpty{
+            if let listaDePreferencias = viewModel.selectedChoices["refeicao"] {
+                for preferencia in listaDePreferencias {
+                    switch preferencia {
+                    case "Refeições Matinais":
+                        cafeDaManha = true
+                    case "Almoço":
+                        almoco = true
+                    case "Refeições da Tarde":
+                        lancheDaTarde = true
+                    case "Jantar e Ceia":
+                        jantar = true
                     default:
                         break
                     }
