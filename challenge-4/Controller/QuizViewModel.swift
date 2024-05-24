@@ -16,50 +16,17 @@ class QuizViewModel: ObservableObject {
         Question(text: "Você mora com quantas pessoas?", choices: ["Moro sozinho", "Moro com 1 pessoa", "Moro com 2 ou mais pessoas"], key: "pessoas", multiple: false),
         Question(text: "Para quanto tempo são as compras?", choices: ["1 semana", "15 dias", "30 dias"], key: "frequencia", multiple: false),
         Question(text: "Você pretende usar essa lista para quais refeições?", choices: ["Refeições Matinais", "Almoço", "Refeições da Tarde", "Jantar e Ceia"], key: "refeicao", multiple: true),
-        Question(text: "Você tem alguma restrição alimentar?", choices: ["Intolerância à lactose", "Intolerância à glúten", "Veganismo", "Não possuo"], key: "restricao", multiple:true)
+        Question(text: "Você possui uma das restrições alimentares abaixo?", choices: ["Intolerância à lactose", "Intolerância à glúten", "Veganismo", "Não possuo"], key: "restricao", multiple:true)
     ]
     
+   
    
     
     var currentQuestion: Question {
         questions[currentQuestionIndex]
     }
     
-//    var canMoveToNextQuestion: Bool {
-//        selectedChoices.keys.contains(currentQuestion.key)
-//    }
-    
-//    var canMoveToNextQuestion: Bool {
-//        if currentQuestion.multiple {
-//            return selectedChoices.keys.contains(currentQuestion.key) && !selectedChoices[currentQuestion.key]!.isEmpty
-//        } else {
-//            return selectedChoices.keys.contains(currentQuestion.key)
-//        }
-//    }
 
-    
-    
-//    func selectChoice(choice: String) {
-//        selectedChoices[currentQuestion.key] = choice
-//    }
-    
-//    func selectChoice(choice: String) {
-//        if let selectedChoicesForQuestion = selectedChoices[currentQuestion.key] {
-//            // Opção já selecionada, então desmarque
-//            if selectedChoicesForQuestion.contains(choice) {
-//                selectedChoices[currentQuestion.key] = selectedChoicesForQuestion.filter { $0 != choice }
-//            } else {
-//                // Adicione a opção à lista de selecionadas
-//                selectedChoices[currentQuestion.key] = selectedChoicesForQuestion + [choice]
-//            }
-//        } else {
-//            // Adicione a opção à lista de selecionadas para a chave da pergunta
-//            selectedChoices[currentQuestion.key] = [choice]
-//        }
-//    }
-    
-
-////////////////
     var canMoveToNextQuestion: Bool {
         guard let selected = selectedChoices[currentQuestion.key] else {
           return false
@@ -87,9 +54,6 @@ class QuizViewModel: ObservableObject {
         }
       }
 
-//////////////
-    
-    
     func nextQuestion() {
         if canMoveToNextQuestion && currentQuestionIndex < questions.count {
             currentQuestionIndex += 1
