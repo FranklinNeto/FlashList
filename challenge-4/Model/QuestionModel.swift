@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Question {
-    let text: String
+    let text: [String]
     let choices: [String]
     let key: String
     let multiple: Bool

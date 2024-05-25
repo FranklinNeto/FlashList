@@ -13,10 +13,10 @@ class QuizViewModel: ObservableObject {
     @Published var selectedChoices: [String: [String]] = [:]
 
     let questions: [Question] = [
-        Question(text: "Você mora com quantas pessoas?", choices: ["Moro sozinho", "Moro com 1 pessoa", "Moro com 2 ou mais pessoas"], key: "pessoas", multiple: false),
-        Question(text: "Para quanto tempo são as compras?", choices: ["1 semana", "15 dias", "30 dias"], key: "frequencia", multiple: false),
-        Question(text: "Você pretende usar essa lista para quais refeições?", choices: ["Refeições Matinais", "Almoço", "Refeições da Tarde", "Jantar e Ceia"], key: "refeicao", multiple: true),
-        Question(text: "Você possui uma das restrições alimentares abaixo?", choices: ["Intolerância à lactose", "Intolerância à glúten", "Veganismo", "Não possuo"], key: "restricao", multiple:true)
+        Question(text: ["Você mora com quantas", "pessoas?"], choices: ["Moro sozinho", "Moro com 1 pessoa", "Moro com 2 ou mais pessoas"], key: "pessoas", multiple: false),
+        Question(text: ["Para quanto tempo são as", "compras?"], choices: ["1 semana", "15 dias", "30 dias"], key: "frequencia", multiple: false),
+        Question(text: ["Você pretende usar essa", "lista para quais refeições?"], choices: ["Refeições Matinais", "Almoço", "Refeições da Tarde", "Jantar e Ceia"], key: "refeicao", multiple: true),
+        Question(text: ["Você possui uma das", "restrições alimentares abaixo?"], choices: ["Intolerância à lactose", "Intolerância à glúten", "Vegano", "Não possuo"], key: "restricao", multiple:true)
     ]
     
    

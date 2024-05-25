@@ -246,7 +246,7 @@ struct BigListTest: View {
                         userGlutenIntolerant = true
                     case "Intolerância à lactose":
                         userLactoseIntolerant = true
-                    case "Veganismo":
+                    case "Vegano":
                         userVegan = true
                         
                     case "Não possuo":
