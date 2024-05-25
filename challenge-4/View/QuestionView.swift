@@ -27,7 +27,9 @@ struct QuestionView: View {
                                     
                                     ZStack{
                                         Circle()
-                                            .fill(index < viewModel.currentQuestionIndex ? Color.green : Color.gray)
+                                            .fill(index < viewModel.currentQuestionIndex  //&&
+                                                  //                                                viewModel.canMoveToNextQuestion
+                                                  ? Color.corBarraDeProgresso : Color.gray)
                                             .frame(width: 40, height: 40)
                                         
                                         Image(systemName: "checkmark")
@@ -35,7 +37,7 @@ struct QuestionView: View {
                                     }
                                     if index != 4 - 1 {
                                         Rectangle()
-                                            .fill(index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso : Color.gray)
+                                            .fill(/*index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso :*/ Color.gray)
                                             .frame(height: 2)
                                             .frame(maxWidth: .infinity)
                                     }
@@ -46,13 +48,11 @@ struct QuestionView: View {
                         }
                         .padding()
                         
-                       
-                            
                         VStack{
                             if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
-                                 Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
-                             }
-                             
+                                Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
+                            }
+                            
                             if viewModel.currentQuestionIndex + 1 == 3 || viewModel.currentQuestionIndex + 1 == 4 {
                                 
                                 VStack{
@@ -63,71 +63,91 @@ struct QuestionView: View {
                                 
                             }
                         }
-                             
+                        
+                        
                         Text(viewModel.currentQuestion.text)
                             .font(.title)
                             .padding()
                             .foregroundColor(.cordasPerguntas)
-                       
                         
-                        ForEach(viewModel.currentQuestion.choices, id: \.self) { choice in
-                            Button(action: {
-                                viewModel.selectChoice(choice: choice)
-                                
-                            }) {
-                                
-                                Text(choice)
-                                    .padding()
-                                    .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
-                                        .corDoTextoOpcaoAtivada
-                                                     :
-                                        .corDoTextoOpcaoDesativado)
-                                
-                                
-                                    .background(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ? Color.corBotaoAtivado:
-                                                    Color.corDeFundoDaOpcaoDesativada)
-                                    .foregroundColor(.corDoTextoOpcaoDesativado)
-                                    .cornerRadius(10)
-                            }
-                            .padding(.vertical, 4)
-                        }
-                        
-                        Spacer()
-                        
-                        HStack {
-                            if viewModel.currentQuestionIndex > 0 {
-                                Button(action: {
-                                    viewModel.previousQuestion()
-                                }) {
-                                    Text("Anterior")
-                                        .padding()
-                                        .background(Color.white)
-                                        .foregroundColor(.corDoVoltar)
-                                        .cornerRadius(12)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .stroke(Color.corBotaoAtivado, lineWidth: 2)
-                                        )
-                                    
-                                                
+                        GeometryReader { geometry in
+                            VStack {
+                                ForEach(viewModel.currentQuestion.choices, id: \.self) { choice in
+                                    Button(action: {
+                                        viewModel.selectChoice(choice: choice)
+                                        
+                                    }) {
+                                        Text(choice)
+                                            .frame(width: geometry.size.width * 0.8)
+                                            .padding()
+                                            .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
+                                                .corDoTextoOpcaoAtivada
+                                                             :
+                                                    .corDoTextoOpcaoDesativado)
+                                        
+                                        
+                                            .background(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ? Color.corBotaoAtivado:
+                                                            Color.corDeFundoDaOpcaoDesativada)
+                                            .foregroundColor(.corDoTextoOpcaoDesativado)
+                                            .cornerRadius(40)
+                                    }
+                                    .padding(.vertical, 4)
                                 }
-                                .padding()
                             }
-                            
-                            Button(action: {
-                                viewModel.nextQuestion()
-                            }) {
-                                Text("Avançar")
-                                    .padding()
-                                    .background(viewModel.canMoveToNextQuestion ? Color.corBotaoAtivado : Color.gray)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
-                            .disabled(!viewModel.canMoveToNextQuestion)
-                            .padding()
+                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top) // Centraliza a VStack
+
                         }
+                        .frame(maxWidth: .infinity) // Garante que o VStack ocupe toda a largura disponível
                     }
                     .padding()
+                   // .frame(height: 300)
+                    
+                   // Spacer()
+                    HStack {
+                        if viewModel.currentQuestionIndex > 0 {
+                            Button(action: {
+                                viewModel.previousQuestion()
+                            }) {
+                                Text("Anterior")
+                                    .padding()
+                                    .background(Color.white)
+                                    .foregroundColor(.corDoVoltar)
+                                    .cornerRadius(12)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .stroke(Color.corBotaoAtivado, lineWidth: 4)
+                                    )
+                                
+                                
+                            }
+                            .padding()
+                        }
+                        
+                        
+                        
+                        Button(action: {
+                            viewModel.nextQuestion()
+                        }) {
+                            Text("Avançar")
+                                .padding()
+                                .background(viewModel.canMoveToNextQuestion ? Color.corBotaoAtivado : Color.gray)
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(viewModel.canMoveToNextQuestion ? Color.corBotaoAtivado : Color.gray, lineWidth: 4)
+                                )
+                        }
+                        .disabled(!viewModel.canMoveToNextQuestion)
+                
+                        .padding()
+                        
+                    }
+                    
+                    .padding(.bottom)
+                    
+                    
+                    
                 } else {
                     VStack {
                         NavigationLink(destination: {
@@ -152,11 +172,15 @@ struct QuestionView: View {
                         }
                         .padding(.top, 20)
                     }
+                   
                 }
+                
+                
                 
             }.navigationBarBackButtonHidden(false)
             
         }
+    
     }
 #Preview {
     QuestionView(viewModel: QuizViewModel())
