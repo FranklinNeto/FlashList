@@ -101,9 +101,15 @@ struct QuestionView: View {
                                 }) {
                                     Text("Anterior")
                                         .padding()
-                                        .background(Color.gray)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
+                                        .background(Color.white)
+                                        .foregroundColor(.corDoVoltar)
+                                        .cornerRadius(12)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.corBotaoAtivado, lineWidth: 2)
+                                        )
+                                    
+                                                
                                 }
                                 .padding()
                             }
