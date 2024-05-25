@@ -114,53 +114,71 @@ struct BigListTest: View {
         return total
     }
     
-    
     var body: some View {
-        NavigationView {
-            List(selection: $selecao) {
-                ForEach(filteredBigList) { category in
-                    Section(header: Text(category.name)) {
-                        ForEach(category.list) { product in
-                            HStack{
-                                VStack{
-                                    Text("\(product.name)")
+            NavigationView {
+                List(selection: $selecao) {
+                    ForEach(filteredBigList) { category in
+                        Section(header: Text(category.name.capitalized)
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(Color(.corBotaoAtivado))
+                        ) {
+                            ForEach(category.list) { product in
+                                HStack (){
+                                    VStack(alignment: .leading){
+                                        Text("\(product.name.capitalized)")
+                                            .font(.system(size: 17))
+                                        Text("\(product.amount) \(product.amount > 1 ? "unidades" : "unidade")")
+                                            .font(.system(size: 13))
+                                            .foregroundColor(.gray)
+                                    }
+                                    Spacer()
+                                    Text("R$ \(String(format: "%.2f", product.priceTotal))")
                                         .font(.system(size: 17))
-                                    Text("\(product.amount)")
-                                        .font(.system(size: 13))
                                         .foregroundColor(.gray)
-                                        .multilineTextAlignment(.leading)
-                                    
                                 }
-                                Spacer()
-                                Text("R$ \(String(format: "%.2f", product.priceTotal))")
                             }
                         }
                     }
-                    //.font(.system(size: 20))
                 }
-                HStack{
-                    VStack{
-                        Text("Quantidade de Itens:")
-                        Text(String(totalItems))
-                    }
-                    Spacer()
-                    VStack{
-                        Text("Valor total: ")
-                        Text("R$ \(String(format: "%.2f", totalPrice))")
+                //.navigationTitle("Lista Gerada Para Você")
+                .listStyle(GroupedListStyle())
+                .onAppear {
+                    generatingPersonalizedList()
+                }
+                .searchable(text: $searchText, prompt: "Buscar...")
+                .safeAreaInset(edge: .bottom) {
+                    VStack {
+                        Divider()
+                        HStack {
+                            VStack {
+                                Text("Quantidade de itens")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.white)
+                                Text("\(totalItems)")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                            Spacer()
+                            VStack {
+                                Text("Valor total da lista")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.white)
+                                Text("R$ \(String(format: "%.2f", totalPrice))")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                        }
+                        .padding()
+                        //.background(Color(red: 0.3, green: 0.6, blue: 0.2))
+                        .background(Color(.corBotaoAtivado))
+                        //.frame(width: 100, height: 100, alignment: 50)
                     }
                 }
-                //Spacer()
-                
             }
-            .navigationTitle("Lista Gerada Para Voce")
-            .listStyle(.sidebar)
-            .onAppear {
-                
-                generatingPersonalizedList()
-            }
-            .searchable(text: $searchText, prompt: "Buscar produtos")
         }
-    }
+
 
     
     func generatingPersonalizedList() {
