@@ -98,6 +98,22 @@ struct BigListTest: View {
     @State var multiplicadorPessoas: Int = 1  // Variável para armazenar o multiplicador de quantidade
     @State var multiplicadorFrequencia: Int = 1  // Variável para armazenar o multiplicador de frequencia
     
+    var totalItems: Int {
+        listaFiltrada.reduce(0) { result, category in
+            result + category.list.count
+        }
+    }
+
+    var totalPrice: Double {
+        var total: Double = 0.0
+        for category in listaFiltrada {
+            for product in category.list {
+                total += Double(product.amount) * Double(product.price)
+            }
+        }
+        return total
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -106,19 +122,35 @@ struct BigListTest: View {
                     Section(header: Text(category.name)) {
                         ForEach(category.list) { product in
                             HStack{
-                                
-                                Text(product.name)
+                                VStack{
+                                    Text("\(product.name)")
+                                        .font(.system(size: 17))
+                                    Text("\(product.amount)")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.gray)
+                                        .multilineTextAlignment(.leading)
+                                    
+                                }
                                 Spacer()
-                                Text("R$ \(String(product.price))")
-                                Text("\(product.amount)")
-                                Text("Total: R$ \(String(format: "%.2f", product.priceTotal))")
-                                
-                                
+                                Text("R$ \(String(format: "%.2f", product.priceTotal))")
                             }
                         }
                     }
-                    
+                    //.font(.system(size: 20))
                 }
+                HStack{
+                    VStack{
+                        Text("Quantidade de Itens:")
+                        Text(String(totalItems))
+                    }
+                    Spacer()
+                    VStack{
+                        Text("Valor total: ")
+                        Text("R$ \(String(format: "%.2f", totalPrice))")
+                    }
+                }
+                //Spacer()
+                
             }
             .navigationTitle("Lista Gerada Para Voce")
             .listStyle(.sidebar)
@@ -129,6 +161,7 @@ struct BigListTest: View {
             .searchable(text: $searchText, prompt: "Buscar produtos")
         }
     }
+
     
     func generatingPersonalizedList() {
         
@@ -172,21 +205,6 @@ struct BigListTest: View {
                      if cafeDaManha || almoco || lancheDaTarde || jantar {
                          shouldInclude = shouldInclude && shouldIncludeMeal
                      }
-                
-//                if cafeDaManha {
-//                    shouldInclude = shouldInclude || product.isCafe
-//                }
-//                
-//                if almoco {
-//                    shouldInclude = shouldInclude || product.isAlmoco
-//                }
-//                if lancheDaTarde {
-//                    shouldInclude = shouldInclude || product.isLanche
-//                }
-//                
-//                if jantar {
-//                    shouldInclude = shouldInclude || product.isJanta
-//                }
                 
                 return shouldInclude
             }
