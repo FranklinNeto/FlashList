@@ -99,10 +99,10 @@ struct BigListTest: View {
     @State var multiplicadorFrequencia: Int = 1  // Variável para armazenar o multiplicador de frequencia
     
     var totalItems: Int {
-            listaFiltrada.reduce(0) { result, category in
-                result + category.list.count
-            }
+        listaFiltrada.reduce(0) { result, category in
+            result + category.list.count
         }
+    }
 
     var totalPrice: Double {
         var total: Double = 0.0
@@ -117,32 +117,48 @@ struct BigListTest: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                List(selection: $selecao) {
-                    // Seu código da lista aqui...
-                }
-                .navigationTitle("Lista Gerada Para Você")
-                .listStyle(.sidebar)
-                .onAppear {
-                    generatingPersonalizedList()
-                }
-                .searchable(text: $searchText, prompt: "Buscar produtos")
-
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        VStack {
-                            Text("Total de Itens: \(totalItems)")
-                            Text("Valor Total: R$ \(String(format: "%.2f", totalPrice))")
+            List(selection: $selecao) {
+                ForEach(filteredBigList) { category in
+                    Section(header: Text(category.name)) {
+                        ForEach(category.list) { product in
+                            HStack{
+                                VStack{
+                                    Text("\(product.name)")
+                                        .font(.system(size: 17))
+                                    Text("\(product.amount)")
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.gray)
+                                        .multilineTextAlignment(.leading)
+                                    
+                                }
+                                Spacer()
+                                Text("R$ \(String(format: "%.2f", product.priceTotal))")
+                            }
                         }
-                        .padding()
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(10)
-                        .padding()
+                    }
+                    //.font(.system(size: 20))
+                }
+                HStack{
+                    VStack{
+                        Text("Quantidade de Itens:")
+                        Text(String(totalItems))
+                    }
+                    Spacer()
+                    VStack{
+                        Text("Valor total: ")
+                        Text("R$ \(String(format: "%.2f", totalPrice))")
                     }
                 }
+                //Spacer()
+                
             }
+            .navigationTitle("Lista Gerada Para Voce")
+            .listStyle(.sidebar)
+            .onAppear {
+                
+                generatingPersonalizedList()
+            }
+            .searchable(text: $searchText, prompt: "Buscar produtos")
         }
     }
 
