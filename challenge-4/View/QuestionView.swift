@@ -13,62 +13,80 @@ struct QuestionView: View {
     
     
     var body: some View {
-        
-        VStack {
-            // Barra de progresso
-            HStack {
+            VStack {
                 
-                
-                ForEach(0..<4) { index in
+                if viewModel.currentQuestionIndex < viewModel.questions.count {
+                    VStack {
+                        
+                        
+                        HStack {
+                            ForEach(0..<4) { index in
+                                
+                                
+                                HStack{
                                     
-                    
-                    HStack{
-                        
-                        ZStack{
-                        Circle()
-                            .fill(index <= viewModel.currentQuestionIndex ? Color.green : Color.gray)
-                            .frame(width: 40, height: 40)
-                        
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.black)
-                    }
+                                    ZStack{
+                                        Circle()
+                                            .fill(index < viewModel.currentQuestionIndex ? Color.green : Color.gray)
+                                            .frame(width: 40, height: 40)
+                                        
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(.black)
+                                    }
                                     if index != 4 - 1 {
                                         Rectangle()
-                                            .fill(index < viewModel.currentQuestionIndex ? Color.green : Color.gray)
+                                            .fill(index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso : Color.gray)
                                             .frame(height: 2)
                                             .frame(maxWidth: .infinity)
                                     }
                                 }
-                
-                
-                }
-                
-            }
-            .padding()
-            
-            
-            
-            
-            VStack {
-                if viewModel.currentQuestionIndex < viewModel.questions.count {
-                    VStack {
+                                
+                            }
+                            
+                        }
+                        .padding()
+                        
+                       
+                            
+                        VStack{
+                            if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
+                                 Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
+                             }
+                             
+                            if viewModel.currentQuestionIndex + 1 == 3 || viewModel.currentQuestionIndex + 1 == 4 {
+                                
+                                VStack{
+                                    Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma ou mais")
+                                    
+                                    Text ("respostas")
+                                }
+                                
+                            }
+                        }
+                             
                         Text(viewModel.currentQuestion.text)
                             .font(.title)
                             .padding()
-                            .foregroundColor(.red)
+                            .foregroundColor(.cordasPerguntas)
+                       
                         
                         ForEach(viewModel.currentQuestion.choices, id: \.self) { choice in
                             Button(action: {
                                 viewModel.selectChoice(choice: choice)
                                 
                             }) {
+                                
                                 Text(choice)
                                     .padding()
+                                    .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
+                                        .corDoTextoOpcaoAtivada
+                                                     :
+                                        .corDoTextoOpcaoDesativado)
+                                
+                                
+                                    .background(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ? Color.corBotaoAtivado:
+                                                    Color.corDeFundoDaOpcaoDesativada)
                                     .foregroundColor(.corDoTextoOpcaoDesativado)
-                                
-                                
-                                    .background(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ? Color.corBotaoAtivado : Color.corDeFundoDaOpcaoDesativada)
-                                    .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
                             .padding(.vertical, 4)
@@ -134,7 +152,6 @@ struct QuestionView: View {
             
         }
     }
-}
 #Preview {
     QuestionView(viewModel: QuizViewModel())
 }
