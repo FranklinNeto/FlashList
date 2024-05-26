@@ -57,18 +57,22 @@ struct QuestionView: View {
                         
                     }
                     .padding()
+                   // .position(0)
                     
                     VStack{
                         if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
                             Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
+                                .font(.system(size: 16))
                         }
                         
                         if viewModel.currentQuestionIndex + 1 == 3 || viewModel.currentQuestionIndex + 1 == 4 {
                             
                             VStack{
                                 Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma ou mais")
+                                    .font(.system(size: 16))
                                 
                                 Text ("respostas")
+                                    .font(.system(size: 16))
                             }
                             
                         }
@@ -98,6 +102,7 @@ struct QuestionView: View {
                                     Text(choice)
                                         .frame(width: geometry.size.width * 0.8)
                                         .padding()
+                                        .font(.system(size: 20))
                                         .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
                                             .corDoTextoOpcaoAtivada
                                                          :
@@ -118,7 +123,7 @@ struct QuestionView: View {
                     .frame(maxWidth: .infinity) // Garante que o VStack ocupe toda a largura disponível
                 }
                 .padding()
-                // .frame(height: 300)
+               // .frame(height: 675)
                 
                 // Spacer()
                 HStack {
