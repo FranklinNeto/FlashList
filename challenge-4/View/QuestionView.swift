@@ -108,7 +108,11 @@ struct QuestionView: View {
                                     }) {
                                         Text(choice)
                                             .frame(width: geometry.size.width * 0.8)
-                                            .padding()
+                        
+                                            .padding(.horizontal, 11)
+                                            .padding(.vertical, 10)
+                                           
+                                            
                                             .font(.system(size: 20))
                                             .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
                                                 .corDoTextoOpcaoAtivada
@@ -121,11 +125,12 @@ struct QuestionView: View {
                                             .foregroundColor(.corDoTextoOpcaoDesativado)
                                             .cornerRadius(40)
                                     }
-                                    .padding(.vertical, 0)
+                                    .padding(.vertical, 5)
                                 }
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top) // Centraliza a VStack
-                            .position(x: 180, y: -30)
+                            .position(x: 178, y: -25)
+                            
                             
                         }
                         .frame(maxWidth: .infinity) // Garante que o VStack ocupe toda a largura disponível

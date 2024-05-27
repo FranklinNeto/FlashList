@@ -103,7 +103,7 @@ struct BigListTest: View {
             result + category.list.count
         }
     }
-
+    
     var totalPrice: Double {
         var total: Double = 0.0
         for category in listaFiltrada {
