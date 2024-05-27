@@ -67,7 +67,10 @@ struct QuestionView: View {
                         VStack{
                             if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
                                 Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
+                                   
                                     .font(.system(size: 16))
+                                    .position(x: 178, y: 36)
+
                             }
                             
                             if viewModel.currentQuestionIndex + 1 == 3 || viewModel.currentQuestionIndex + 1 == 4 {
@@ -87,13 +90,13 @@ struct QuestionView: View {
                         VStack{
                             
                             Text(viewModel.currentQuestion.text[0])
-                                .font(.system(size: 24))
+                                .font(.system(size: 24, weight: .medium))
                             // .padding()
                                 .foregroundColor(.cordasPerguntas)
                             
                             
                             Text(viewModel.currentQuestion.text[1])
-                                .font(.system(size: 24))
+                                .font(.system(size: 24, weight: .medium))
                                 .foregroundColor(.cordasPerguntas)
                         }
                         .position(x: 165, y: -40)
@@ -110,10 +113,10 @@ struct QuestionView: View {
                                             .frame(width: geometry.size.width * 0.8)
                         
                                             .padding(.horizontal, 11)
-                                            .padding(.vertical, 10)
+                                            .padding(.vertical, 12)
                                            
                                             
-                                            .font(.system(size: 20))
+                                            .font(.system(size: 20, weight: .regular))
                                             .foregroundColor(viewModel.selectedChoices[viewModel.currentQuestion.key]?.contains(choice) == true ?
                                                 .corDoTextoOpcaoAtivada
                                                              :
@@ -125,7 +128,7 @@ struct QuestionView: View {
                                             .foregroundColor(.corDoTextoOpcaoDesativado)
                                             .cornerRadius(40)
                                     }
-                                    .padding(.vertical, 5)
+                                    .padding(.vertical, 3)
                                 }
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top) // Centraliza a VStack
@@ -145,7 +148,7 @@ struct QuestionView: View {
                                 viewModel.previousQuestion()
                             }) {
                                 Text("Anterior")
-                                    .font(.system(size: 17))
+                                    .font(.system(size: 17, weight: .semibold))
                                     .padding(.horizontal, 42)
                                     .padding(.vertical, 20)
                                     .background(Color.white)
@@ -158,16 +161,16 @@ struct QuestionView: View {
                                 
                                 
                             }
-                            .padding()
+                            //.padding()
                         }
                         
-                        
+                      //  Spacer()
                         
                         Button(action: {
                             viewModel.nextQuestion()
                         }) {
                             Text("Avançar")
-                                .font(.system(size: 17))
+                                .font(.system(size: 17, weight: .semibold))
                             // .padding()
                                 .padding(.horizontal, 42)
                                 .padding(.vertical, 20)
@@ -183,13 +186,10 @@ struct QuestionView: View {
                         }
                         .disabled(!viewModel.canMoveToNextQuestion)
                         
-                        .padding()
-                        //                    .background(.red)
-                        //                    .padding(.horizontal, 100)
-                        //                    .padding(.vertical, 15)
+                      // .padding()
+                     
                         
                     }
-                    //  .background(.red)
                     
                     .position(x: 195, y: 205)
                     .padding(.bottom)
