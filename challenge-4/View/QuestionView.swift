@@ -14,12 +14,12 @@ struct QuestionView: View {
     
     var body: some View {
         
-        ZStack{
-            
-            Image("quest4")
-                .resizable()
-                .scaledToFit()
-                .opacity(0.5)
+//        ZStack{
+//            
+//            Image("quest4")
+//                .resizable()
+//                .scaledToFit()
+//                .opacity(0.5)
             
             
             
@@ -77,11 +77,11 @@ struct QuestionView: View {
                                 VStack(spacing:0){
                                     Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma ou mais")
                                         .font(.system(size: 16, weight: .regular))
-                                        .position(x: 178, y: 36)
+                                        .position(x: 170, y: 36)
                                     
                                     Text ("respostas")
                                         .font(.system(size: 16, weight: .regular))
-                                        .position(x: 178, y: 19)
+                                        .position(x: 170, y: 19)
                                 }
                                 
                             }
@@ -100,7 +100,7 @@ struct QuestionView: View {
                                 .font(.system(size: 24, weight: .medium))
                                 .foregroundColor(.cordasPerguntas)
                         }
-                        .position(x: 165, y: -40)
+                        .position(x: 165, y: -30)
                         .padding()
                         
                         GeometryReader { geometry in
@@ -133,7 +133,7 @@ struct QuestionView: View {
                                 }
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top) // Centraliza a VStack
-                            .position(x: 178, y: -25)
+                            .position(x: 178, y: -18)
                             
                             
                         }
@@ -230,7 +230,7 @@ struct QuestionView: View {
             }
             .navigationBarBackButtonHidden(false)
             
-        }
+     //   }
     }
     
 }
