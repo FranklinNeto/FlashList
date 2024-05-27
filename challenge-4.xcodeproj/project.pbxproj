@@ -19,6 +19,7 @@
 		DD8AA8072BFD2C6100A36BE4 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AA8062BFD2C6100A36BE4 /* QuestionModel.swift */; };
 		DD8AA8092BFD2CBE00A36BE4 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AA8082BFD2CBE00A36BE4 /* ProductModel.swift */; };
 		DD8AA80B2BFD2EB700A36BE4 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AA80A2BFD2EB700A36BE4 /* QuestionView.swift */; };
+		DD8AA8472C04CE2B00A36BE4 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AA8462C04CE2B00A36BE4 /* TabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +27,7 @@
 		3BE012AC2BF8F8FF00391547 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3BE012AE2BF8F95A00391547 /* ModalEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEdition.swift; sourceTree = "<group>"; };
 		3BE012B22BF8FCB000391547 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
-		DD52DF322BF67D2600CCC2D1 /* challenge-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD52DF322BF67D2600CCC2D1 /* FewClicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FewClicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_4App.swift; sourceTree = "<group>"; };
 		DD52DF372BF67D2600CCC2D1 /* CreatedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedList.swift; sourceTree = "<group>"; };
 		DD52DF392BF67D2600CCC2D1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -35,6 +36,7 @@
 		DD8AA8062BFD2C6100A36BE4 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		DD8AA8082BFD2CBE00A36BE4 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		DD8AA80A2BFD2EB700A36BE4 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		DD8AA8462C04CE2B00A36BE4 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE012AC2BF8F8FF00391547 /* Home.swift */,
+				DD8AA8462C04CE2B00A36BE4 /* TabView.swift */,
 				DD8AA80A2BFD2EB700A36BE4 /* QuestionView.swift */,
 				3B74F4D12BFE7F360088E333 /* BigListTest.swift */,
 				3BE012AE2BF8F95A00391547 /* ModalEdition.swift */,
@@ -88,7 +91,7 @@
 		DD52DF332BF67D2600CCC2D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD52DF322BF67D2600CCC2D1 /* challenge-4.app */,
+				DD52DF322BF67D2600CCC2D1 /* FewClicks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD52DF312BF67D2600CCC2D1 /* challenge-4 */ = {
+		DD52DF312BF67D2600CCC2D1 /* FewClicks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "challenge-4" */;
+			buildConfigurationList = DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FewClicks" */;
 			buildPhases = (
 				DD52DF2E2BF67D2600CCC2D1 /* Sources */,
 				DD52DF2F2BF67D2600CCC2D1 /* Frameworks */,
@@ -130,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = "challenge-4";
+			name = FewClicks;
 			productName = "challenge-4";
-			productReference = DD52DF322BF67D2600CCC2D1 /* challenge-4.app */;
+			productReference = DD52DF322BF67D2600CCC2D1 /* FewClicks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD52DF312BF67D2600CCC2D1 /* challenge-4 */,
+				DD52DF312BF67D2600CCC2D1 /* FewClicks */,
 			);
 		};
 /* End PBXProject section */
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD8AA8472C04CE2B00A36BE4 /* TabView.swift in Sources */,
 				DD8AA80B2BFD2EB700A36BE4 /* QuestionView.swift in Sources */,
 				DD52DF382BF67D2600CCC2D1 /* CreatedList.swift in Sources */,
 				DD52DF3A2BF67D2600CCC2D1 /* Item.swift in Sources */,
@@ -390,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "challenge-4" */ = {
+		DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FewClicks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD52DF432BF67D2800CCC2D1 /* Debug */,
