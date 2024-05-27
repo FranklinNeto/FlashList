@@ -111,73 +111,150 @@ struct BigListTest: View {
                 total += Double(product.amount) * Double(product.price)
             }
         }
-        return total
+        return total/100
     }
     
-    var body: some View {
-            NavigationView {
-                List(selection: $selecao) {
-                    ForEach(filteredBigList) { category in
-                        Section(header: Text(category.name.capitalized)
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(Color(.corBotaoAtivado))
-                        ) {
-                            ForEach(category.list) { product in
-                                HStack (){
-                                    VStack(alignment: .leading){
-                                        Text("\(product.name.capitalized)")
-                                            .font(.system(size: 17))
-                                        Text("\(product.amount) \(product.amount > 1 ? "unidades" : "unidade")")
-                                            .font(.system(size: 13))
-                                            .foregroundColor(.gray)
+    //    var body: some View {
+    //            NavigationView {
+    //                    List(selection: $selecao) {
+    //                        ForEach(filteredBigList) { category in
+    //                            Section(header: Text(category.name.capitalized)
+    //                                .font(.system(size: 20, weight: .bold))
+    //                                .foregroundColor(Color(.corBotaoAtivado))
+    //                            ) {
+    //                                ForEach(category.list) { product in
+    //                                    HStack (){
+    //                                        VStack(alignment: .leading){
+    //                                            Text("\(product.name.capitalized)")
+    //                                                .font(.system(size: 17))
+    //                                            Text("\(product.amount) \(product.amount > 1 ? "unidades" : "unidade")")
+    //                                                .font(.system(size: 13))
+    //                                                .foregroundColor(.gray)
+    //                                        }
+    //                                        Spacer()
+    //                                        Text("R$ \(String(format: "%.2f", product.priceTotal).replacingOccurrences(of: ".", with: ","))")
+    //                                            .font(.system(size: 17))
+    //                                            .foregroundColor(.gray)
+    //                                    }
+    //                                }
+    //                            }
+    //                        }
+    //                    }
+    //                    //.navigationTitle("Lista Gerada Para Você")
+    //                    .listStyle(GroupedListStyle())
+    //                    .onAppear {
+    //                        generatingPersonalizedList()
+    //                    }
+    //                    .searchable(text: $searchText, prompt: "Buscar...")
+    //                    .safeAreaInset(edge: .bottom) {
+    //                        VStack {
+    //                            Divider()
+    //                            HStack {
+    //                                VStack {
+    //                                    Text("Quantidade de itens")
+    //                                        .font(.system(size: 13))
+    //                                        .foregroundColor(.white)
+    //
+    //                                    Text("\(totalItems)")
+    //                                        .font(.system(size: 28, weight: .bold))
+    //                                        .foregroundColor(.white)
+    //                                        .bold()
+    //                                        .offset(y: 10)
+    //                                }
+    //                                Spacer()
+    //                                VStack {
+    //                                    Text("Valor total da lista")
+    //                                        .font(.custom("SF Pro", size: 13))
+    //                                        .foregroundColor(.white)
+    //                                    Text("R$ \(String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ","))")
+    //                                        .font(.system(size: 28, weight: .bold))
+    //                                        .foregroundColor(.white)
+    //                                        .bold()
+    //                                        .offset(y: 10)
+    //                                }
+    //                            }
+    //                            .padding()
+    //                            //.background(Color(red: 0.3, green: 0.6, blue: 0.2))
+    //                            .background(Color(.corBotaoAtivado))
+    //                            //.frame(width: 100, height: 100, alignment: 50)
+    //                        }
+    //                    }
+    //            }
+    //        }
+        
+        var body: some View {
+                NavigationView {
+                    ZStack {
+                        Color.white.edgesIgnoringSafeArea(.all) // Fundo branco
+
+                        List(selection: $selecao) {
+                            ForEach(filteredBigList) { category in
+                                Section(header: Text(category.name.capitalized)
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(Color(.corBotaoAtivado))
+                                            .textCase(nil)
+                                ) {
+                                    ForEach(category.list) { product in
+                                        HStack {
+                                            VStack(alignment: .leading) {
+                                                Text("\(product.name.capitalized)")
+                                                    .font(.system(size: 17))
+                                                Text("\(product.amount) \(product.amount > 1 ? "unidades" : "unidade")")
+                                                    .font(.system(size: 13))
+                                                    .foregroundColor(.gray)
+                                            }
+                                            Spacer()
+                                            Text("R$ \(String(format: "%.2f", product.priceTotal).replacingOccurrences(of: ".", with: ","))")
+                                                .font(.system(size: 17))
+                                                .foregroundColor(.gray)
+                                        }
+                                        .listRowBackground(Color.white) // Definindo a cor de fundo da célula individualmente
                                     }
-                                    Spacer()
-                                    Text("R$ \(String(format: "%.2f", product.priceTotal))")
-                                        .font(.system(size: 17))
-                                        .foregroundColor(.gray)
                                 }
                             }
                         }
-                    }
-                }
-                //.navigationTitle("Lista Gerada Para Você")
-                .listStyle(GroupedListStyle())
-                .onAppear {
-                    generatingPersonalizedList()
-                }
-                .searchable(text: $searchText, prompt: "Buscar...")
-                .safeAreaInset(edge: .bottom) {
-                    VStack {
-                        Divider()
-                        HStack {
+                        .listStyle(InsetGroupedListStyle())
+                        .onAppear {
+                            generatingPersonalizedList()
+                        }
+                        .searchable(text: $searchText, prompt: "Buscar...")
+                        .safeAreaInset(edge: .bottom) {
                             VStack {
-                                Text("Quantidade de itens")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.white)
-                                Text("\(totalItems)")
-                                    .font(.system(size: 28, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .bold()
-                            }
-                            Spacer()
-                            VStack {
-                                Text("Valor total da lista")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.white)
-                                Text("R$ \(String(format: "%.2f", totalPrice))")
-                                    .font(.system(size: 28, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .bold()
+                                //Divider()
+                                HStack {
+                                    VStack {
+                                        Text("Quantidade de itens")
+                                            .font(.system(size: 13))
+                                            .foregroundColor(.white)
+                                            .offset(y: 5)
+                                        Text("\(totalItems)")
+                                            .font(.system(size: 28, weight: .bold))
+                                            .foregroundColor(.white)
+                                            .bold()
+                                            .offset(y: 15)
+                                    }
+                                    Spacer()
+                                    VStack {
+                                        Text("Valor total da lista")
+                                            .font(.system(size: 13))
+                                            .foregroundColor(.white)
+                                            .offset(y: 5)
+                                        Text("R$ \(String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ","))")
+                                            .font(.system(size: 28, weight: .bold))
+                                            .foregroundColor(.white)
+                                            .bold()
+                                            .offset(y: 15)
+                                    }
+                                }
+                                .padding()
+                                .background(Color(.corBotaoAtivado))
                             }
                         }
-                        .padding()
-                        //.background(Color(red: 0.3, green: 0.6, blue: 0.2))
-                        .background(Color(.corBotaoAtivado))
-                        //.frame(width: 100, height: 100, alignment: 50)
+                        .navigationBarTitle("Sua lista está pronta!")
                     }
                 }
             }
-        }
+
 
 
     
