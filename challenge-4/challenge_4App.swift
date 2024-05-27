@@ -26,7 +26,7 @@ struct challenge_4App: App {
     var body: some Scene {
         WindowGroup {
            
-            Home()
+            ContentView()
         }
         .modelContainer(sharedModelContainer)
     }
