@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "tela 3 questionário  2.png",
+=======
+      "filename" : "tela 3 questionário  2.png",
+>>>>>>> frontQuestionario3
       "idiom" : "universal",
       "scale" : "1x"
     },
