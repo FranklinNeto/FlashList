@@ -185,7 +185,7 @@ struct BigListTest: View {
         var body: some View {
                 NavigationView {
                     ZStack {
-                        Color.white.edgesIgnoringSafeArea(.all) // Fundo branco
+                       Color.white.edgesIgnoringSafeArea(.all) // Fundo branco
 
                         List(selection: $selecao) {
                             ForEach(filteredBigList) { category in
@@ -203,7 +203,7 @@ struct BigListTest: View {
                                                 Text("\(product.amount)\(product.unidade.rawValue)")
                                                     .font(.system(size: 13))
                                                     .foregroundColor(.gray)
-                                            }.offset(x: 25)
+                                            }/*.offset(x: 25)*/
                                             Spacer()
                                             Text("R$ \(String(format: "%.2f", product.priceTotal/100).replacingOccurrences(of: ".", with: ","))")
                                                 .font(.system(size: 17))
@@ -219,8 +219,8 @@ struct BigListTest: View {
                                 }
                             }
                         }
-                        .listStyle(InsetListStyle())
-                        //.listStyle(InsetGroupedListStyle())
+                        //.listStyle(InsetListStyle())
+                        .listStyle(InsetGroupedListStyle())
                         .onAppear {
                             generatingPersonalizedList()
                         }
@@ -233,24 +233,24 @@ struct BigListTest: View {
                                         Text("Quantidade de itens")
                                             .font(.system(size: 13))
                                             .foregroundColor(.white)
-                                            .offset(y: 5)
+                                            .offset(y: 0)
                                         Text("\(totalItems)")
                                             .font(.system(size: 28, weight: .bold))
                                             .foregroundColor(.white)
                                             .bold()
-                                            .offset(y: 15)
+                                            .offset(y: 10)
                                     }
                                     Spacer()
                                     VStack {
                                         Text("Valor total da lista")
                                             .font(.system(size: 13))
                                             .foregroundColor(.white)
-                                            .offset(y: 5)
+                                            .offset(y: 0)
                                         Text("R$ \(String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ","))")
                                             .font(.system(size: 28, weight: .bold))
                                             .foregroundColor(.white)
                                             .bold()
-                                            .offset(y: 15)
+                                            .offset(y: 10)
                                     }
                                 }
                                 .padding()

@@ -12,7 +12,7 @@ enum UnitType: String {
     case kilogram = "kg"
     case milliliter = "mL"
     case liter = "L"
-    case unit = "unidades"
+    case unit = " unidades"
 }
 
 struct Product: Identifiable {
