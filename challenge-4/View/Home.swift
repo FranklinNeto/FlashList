@@ -2,42 +2,46 @@ import SwiftUI
 
 struct FirstPageView: View {
     var body: some View {
-        VStack {
-            Text("FewClicks")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.green)
-                .padding(.top, 50)
+        
+        ZStack{
             
-            Text("Poupe tempo e simplifique suas compras!")
-                .font(.headline)
-                .foregroundColor(Color.green)
-                .padding(.top, 20)
-            
-            Spacer()
-            
-            Image("comprartempo") // Nome do asset da primeira imagem
+            Image("telahome1")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 200)
-                .padding()
+                .opacity(0.5)
             
-            Text("O FewClicks cria listas de compras personalizadas com base nas suas preferências e necessidades")
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
             
-            Spacer()
             
-//            HStack {
-//                Spacer()
-//                PageControlIndicator(numberOfPages: 2, currentPage: 0)
-//                Spacer()
-//            }
-//            .padding(.bottom, 50)
+            VStack {
+                Text("FewClicks")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.green)
+                    .padding(.top, 50)
+                
+                Text("Poupe tempo e simplifique suas compras!")
+                    .font(.headline)
+                    .foregroundColor(Color.green)
+                    .padding(.top, 20)
+                
+                Spacer()
+                
+                Image("comprartempo") // Nome do asset da primeira imagem
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .padding()
+                
+                Text("O FewClicks cria listas de compras personalizadas com base nas suas preferências e necessidades")
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                
+                Spacer()
+                
+            }
         }
     }
 }
-
 struct SecondPageView: View {
     var body: some View {
         VStack {
@@ -81,19 +85,5 @@ struct SecondPageView: View {
     }
 }
 
-//struct PageControlIndicator: View {
-//    var numberOfPages: Int
-//    var currentPage: Int
-//    
-//    var body: some View {
-//        HStack {
-//            ForEach(0..<numberOfPages, id: \.self) { index in
-//                Circle()
-//                    .fill(index == currentPage ? Color.gray : Color.secondary)
-//                    .frame(width: 8, height: 8)
-//                    .padding(.horizontal, 2)
-//            }
-//        }
-//    }
-//}
+
 
