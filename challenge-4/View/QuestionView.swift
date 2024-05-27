@@ -29,11 +29,11 @@ struct QuestionView: View {
                     VStack {
                         
                         
-                        HStack {
+                        HStack (spacing: 0) {
                             ForEach(0..<4) { index in
                                 
                                 
-                                HStack{
+                                HStack (spacing: 0){
                                     
                                     ZStack{
                                         Circle()
@@ -49,16 +49,18 @@ struct QuestionView: View {
                                         Rectangle()
                                             .fill(/*index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso :*/ Color.corLinhaDeProgressoDesativada)
                                             .frame(height: 1)
-                                            .frame(maxWidth: .infinity)
+                                         //   .frame(maxWidth: .infinity)
                                     }
                                 }
-                                
+                               
                                 
                                 
                             }
                             
                         }
-                        .position(x: 165, y: 7)
+                        
+//                      .position(x: 165, y: 7)
+                        .position(x: 165, y: 5)
                         
                         
                         // .background(.red)
