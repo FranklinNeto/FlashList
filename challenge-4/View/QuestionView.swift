@@ -16,7 +16,7 @@ struct QuestionView: View {
         
         ZStack{
             
-            Image("quest1")
+            Image("quest4")
                 .resizable()
                 .scaledToFit()
                 .opacity(0.5)
@@ -114,7 +114,7 @@ struct QuestionView: View {
                                             .frame(width: geometry.size.width * 0.8)
                         
                                             .padding(.horizontal, 11)
-                                            .padding(.vertical, 12)
+                                            .padding(.vertical, 13)
                                            
                                             
                                             .font(.system(size: 20, weight: .regular))
@@ -129,7 +129,7 @@ struct QuestionView: View {
                                             .foregroundColor(.corDoTextoOpcaoDesativado)
                                             .cornerRadius(40)
                                     }
-                                    .padding(.vertical, 3)
+                                    .padding(.vertical, 2)
                                 }
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top) // Centraliza a VStack
@@ -162,10 +162,11 @@ struct QuestionView: View {
                                 
                                 
                             }
-                            //.padding()
+                           
                         }
                         
-                      //  Spacer()
+                     
+                        Spacer().frame(width: 16)
                         
                         Button(action: {
                             viewModel.nextQuestion()
@@ -187,12 +188,10 @@ struct QuestionView: View {
                         }
                         .disabled(!viewModel.canMoveToNextQuestion)
                         
-                      // .padding()
-                     
-                        
+                      
                     }
                     
-                    .position(x: 195, y: 205)
+                    .position(x: 195, y: 202)
                     .padding(.bottom)
                     
                     
