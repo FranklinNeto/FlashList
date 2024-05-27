@@ -193,6 +193,7 @@ struct BigListTest: View {
                                             .font(.system(size: 20, weight: .bold))
                                             .foregroundColor(Color(.corBotaoAtivado))
                                             .textCase(nil)
+                                            
                                 ) {
                                     ForEach(category.list) { product in
                                         HStack {
@@ -202,11 +203,16 @@ struct BigListTest: View {
                                                 Text("\(product.amount)\(product.unidade.rawValue)")
                                                     .font(.system(size: 13))
                                                     .foregroundColor(.gray)
-                                            }
+                                            }.offset(x: 25)
                                             Spacer()
                                             Text("R$ \(String(format: "%.2f", product.priceTotal/100).replacingOccurrences(of: ".", with: ","))")
                                                 .font(.system(size: 17))
+                                                .offset(x: -15)
                                                 .foregroundColor(.gray)
+                                        
+                                                
+                                                
+                                                
                                         }
                                         .listRowBackground(Color.white) // Definindo a cor de fundo da célula individualmente
                                     }
