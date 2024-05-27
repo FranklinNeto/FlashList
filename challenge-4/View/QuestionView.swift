@@ -27,8 +27,6 @@ struct QuestionView: View {
                 
                 if viewModel.currentQuestionIndex < viewModel.questions.count {
                     VStack {
-                        
-                        
                         HStack (spacing: 0) {
                             ForEach(0..<4) { index in
                                 
@@ -48,11 +46,10 @@ struct QuestionView: View {
                                     if index != 4 - 1 {
                                         Rectangle()
                                             .fill(/*index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso :*/ Color.corLinhaDeProgressoDesativada)
-                                            .frame(height: 1)
-                                         //   .frame(maxWidth: .infinity)
+                                            .frame(width: 50,height: 1)
+                                        //   .frame(maxWidth: .infinity)
                                     }
                                 }
-                               
                                 
                                 
                             }
@@ -63,8 +60,8 @@ struct QuestionView: View {
                         .position(x: 165, y: 5)
                         
                         
-                        // .background(.red)
                         .padding()
+                        .frame(maxWidth: .infinity)
                         
                         VStack{
                             if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
@@ -77,12 +74,14 @@ struct QuestionView: View {
                             
                             if viewModel.currentQuestionIndex + 1 == 3 || viewModel.currentQuestionIndex + 1 == 4 {
                                 
-                                VStack{
+                                VStack(spacing:0){
                                     Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma ou mais")
-                                        .font(.system(size: 16))
+                                        .font(.system(size: 16, weight: .regular))
+                                        .position(x: 178, y: 36)
                                     
                                     Text ("respostas")
-                                        .font(.system(size: 16))
+                                        .font(.system(size: 16, weight: .regular))
+                                        .position(x: 178, y: 19)
                                 }
                                 
                             }
