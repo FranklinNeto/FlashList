@@ -108,7 +108,7 @@ struct BigListTest: View {
         var total: Double = 0.0
         for category in listaFiltrada {
             for product in category.list {
-                total += Double(product.amount) * Double(product.price)
+                total += Double(product.priceTotal)
             }
         }
         return total/100
@@ -213,8 +213,8 @@ struct BigListTest: View {
                                 }
                             }
                         }
-                        //.listStyle(InsetListStyle())
-                        .listStyle(InsetGroupedListStyle())
+                        .listStyle(InsetListStyle())
+                        //.listStyle(InsetGroupedListStyle())
                         .onAppear {
                             generatingPersonalizedList()
                         }
@@ -308,6 +308,7 @@ struct BigListTest: View {
                 var adjustedProduct = product
                 adjustedProduct.amount *= multiplicadorPessoas
                 adjustedProduct.amount *= multiplicadorFrequencia
+                adjustedProduct.priceTotal = atribuirPrecoTotal(product: adjustedProduct)
                 return convertedAmountAndUnit(product: adjustedProduct)
             })
         }
@@ -437,6 +438,14 @@ struct BigListTest: View {
         }
         return modifiedProduct
     }
+    
+    func atribuirPrecoTotal (product: Product) -> Double {
+        var precoAtualizado = product
+        precoAtualizado.priceTotal *= Double(precoAtualizado.price) * Double(multiplicadorPessoas * multiplicadorFrequencia)
+        return precoAtualizado.priceTotal
+    }
+    
+    
     
 
 

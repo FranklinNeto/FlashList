@@ -29,9 +29,7 @@ struct Product: Identifiable {
     let isJanta: Bool
     var unidade: UnitType // Usando o enum UnitType
     
-    var priceTotal: Double {
-        return Double(price) * Double(amount)
-    }
+    var priceTotal: Double = 1
 }
 
 struct Category: Identifiable {
