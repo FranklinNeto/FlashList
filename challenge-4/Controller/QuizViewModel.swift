@@ -34,25 +34,29 @@ class QuizViewModel: ObservableObject {
         return !selected.isEmpty
       }
        
-      func selectChoice(choice: String) {
-        let key = currentQuestion.key
-        if currentQuestion.multiple {
-          // Para questões de múltipla escolha
-          if selectedChoices[key] == nil {
-            selectedChoices[key] = [choice]
-          } else if let index = selectedChoices[key]?.firstIndex(of: choice) {
-            selectedChoices[key]?.remove(at: index)
-            if selectedChoices[key]?.isEmpty == true {
-              selectedChoices.removeValue(forKey: key)
+    func selectChoice(choice: String) {
+            let key = currentQuestion.key
+            if currentQuestion.multiple {
+                // Para questões de múltipla escolha
+                if selectedChoices[key] == nil {
+                    selectedChoices[key] = [choice]
+                } else if let index = selectedChoices[key]?.firstIndex(of: choice) {
+                    selectedChoices[key]?.remove(at: index)
+                    if selectedChoices[key]?.isEmpty == true {
+                        selectedChoices.removeValue(forKey: key)
+                    }
+                } else {
+                    selectedChoices[key]?.append(choice)
+                }
+            } else {
+                // Para questões de escolha única
+                if selectedChoices[key]?.first == choice {
+                    selectedChoices.removeValue(forKey: key)
+                } else {
+                    selectedChoices[key] = [choice]
+                }
             }
-          } else {
-            selectedChoices[key]?.append(choice)
-          }
-        } else {
-          // Para questões de escolha única
-          selectedChoices[key] = [choice]
         }
-      }
 
     func nextQuestion() {
         if canMoveToNextQuestion && currentQuestionIndex < questions.count {
