@@ -1,9 +1,16 @@
 
-
+import UIKit
 import SwiftUI
 struct ContentView: View {
+   
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .corBotaoAtivado
+        UIPageControl.appearance().pageIndicatorTintColor = .corDeFundoDaOpcaoDesativada
+    }
+    
     var body: some View {
         
+    
         NavigationStack{
             
             TabView {
@@ -18,6 +25,9 @@ struct ContentView: View {
     }
 }
 
+
+
 #Preview {
    ContentView()
+    
 }
