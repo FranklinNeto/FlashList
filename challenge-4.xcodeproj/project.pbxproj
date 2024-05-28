@@ -27,7 +27,7 @@
 		3BE012AC2BF8F8FF00391547 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3BE012AE2BF8F95A00391547 /* ModalEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEdition.swift; sourceTree = "<group>"; };
 		3BE012B22BF8FCB000391547 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
-		DD52DF322BF67D2600CCC2D1 /* FewClicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FewClicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD52DF322BF67D2600CCC2D1 /* FlashList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_4App.swift; sourceTree = "<group>"; };
 		DD52DF372BF67D2600CCC2D1 /* CreatedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedList.swift; sourceTree = "<group>"; };
 		DD52DF392BF67D2600CCC2D1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		DD52DF332BF67D2600CCC2D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD52DF322BF67D2600CCC2D1 /* FewClicks.app */,
+				DD52DF322BF67D2600CCC2D1 /* FlashList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD52DF312BF67D2600CCC2D1 /* FewClicks */ = {
+		DD52DF312BF67D2600CCC2D1 /* FlashList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FewClicks" */;
+			buildConfigurationList = DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FlashList" */;
 			buildPhases = (
 				DD52DF2E2BF67D2600CCC2D1 /* Sources */,
 				DD52DF2F2BF67D2600CCC2D1 /* Frameworks */,
@@ -133,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = FewClicks;
+			name = FlashList;
 			productName = "challenge-4";
-			productReference = DD52DF322BF67D2600CCC2D1 /* FewClicks.app */;
+			productReference = DD52DF322BF67D2600CCC2D1 /* FlashList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD52DF312BF67D2600CCC2D1 /* FewClicks */,
+				DD52DF312BF67D2600CCC2D1 /* FlashList */,
 			);
 		};
 /* End PBXProject section */
@@ -338,8 +338,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,8 +367,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FewClicks" */ = {
+		DD52DF422BF67D2800CCC2D1 /* Build configuration list for PBXNativeTarget "FlashList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD52DF432BF67D2800CCC2D1 /* Debug */,
