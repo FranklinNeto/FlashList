@@ -173,7 +173,6 @@ struct QuestionView: View {
                         }) {
                             Text("Avançar")
                                 .font(.system(size: 17, weight: .semibold))
-                            // .padding()
                                 .padding(.horizontal, 42)
                                 .padding(.vertical, 20)
                             
@@ -199,28 +198,52 @@ struct QuestionView: View {
                     
                     
                 } else {
+                  
+                    
+                    
                     VStack {
-                        NavigationLink(destination: {
-                            let quizViewModel = viewModel
-                            BigListTest(viewModel: quizViewModel)
-                        }) {
-                            Text("Ir para lista personalizada")
-                                .padding()
-                                .background(Color.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
                         
-                        Button(action: {
-                            viewModel.restartQuiz()
-                        }) {
-                            Text("Refazer Questionário")
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
+                        HStack {
+                                NavigationLink(destination: {
+                                    let quizViewModel = viewModel
+                                    BigListTest(viewModel: quizViewModel)
+                                }) {
+                                    Text("Ir para lista personalizada")
+                                        .font(.system(size: 17, weight: .semibold))
+                                        .padding(.horizontal, 42)
+                                        .padding(.vertical, 20)
+                                        .frame(maxWidth: .infinity)  // Faz o botão ocupar a largura máxima disponível
+                                        .background(Color.corBotaoAtivado)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(12)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.corBotaoAtivado, lineWidth: 4)
+                                        )
+                                }
+                            }
+
+                            HStack {
+                                Button(action: {
+                                    viewModel.restartQuiz()
+                                }) {
+                                    Text("Refazer Questionário")
+                                        .font(.system(size: 17, weight: .semibold))
+                                        .padding(.horizontal, 42)
+                                        .padding(.vertical, 20)
+                                        .frame(maxWidth: .infinity)  // Faz o botão ocupar a largura máxima disponível
+                                        .background(Color.white)
+                                        .foregroundColor(.corDoVoltar)
+                                        .cornerRadius(12)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.corBotaoAtivado, lineWidth: 4)
+                                        )
+                                }
+                                .padding(.top, 20)
+                            }
                         }
-                        .padding(.top, 20)
+                        .padding(.horizontal)
                     }
                     
                 }
@@ -228,12 +251,12 @@ struct QuestionView: View {
                 
                 
             }
-            .navigationBarBackButtonHidden(false)
+            //.navigationBarBackButtonHidden(false)
             
      //   }
     }
     
-}
+//}
 #Preview {
     QuestionView(viewModel: QuizViewModel())
 }
