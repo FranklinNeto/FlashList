@@ -17,7 +17,7 @@ struct FirstPageView: View {
                     .font(.system(size: 28, weight: .bold))
                     .foregroundColor(Color.corDoTituloDaHome)
                     .padding(.bottom, 5)
-                    .position(x: 200, y: 40)
+                    .position(x: 195, y: 48)
                 
                
                 VStack{
@@ -26,14 +26,10 @@ struct FirstPageView: View {
                 }
                     
                     
-                    
-                    
-                  //  .background(.red)
-                    
                     .font(.system(size: 22, weight: .bold))
                     .foregroundColor(Color.corDoTituloDaHome)
                     .padding(.top, 20)
-                    .position(x: 190, y: -100)
+                    .position(x: 188, y: -95)
                     .multilineTextAlignment(.center)
                     .offset(x: 10, y:-16)
                    
@@ -54,7 +50,7 @@ struct FirstPageView: View {
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
-                    .offset(y:-160)
+                    .offset(y:-165)
                 
                 
                 Spacer()
@@ -62,53 +58,70 @@ struct FirstPageView: View {
                 
             }
             
-      //  }
+   //    }
     }
 }
 
 struct SecondPageView: View {
     var body: some View {
         
-        ZStack{
-            Image("telahome2")
-                .resizable()
-                .scaledToFit()
-                .opacity(0.5)
+//        ZStack{
+//            Image("telahome2")
+//                .resizable()
+//                .scaledToFit()
+//                .opacity(0.5)
             
             
             VStack {
-                Spacer()
+                VStack{
+                    
+                    Text("Você também pode obter uma estimativa")
+              
+                    Text("dos preços dos itens da sua lista,")
+                    Text("ajudando a planejar suas compras")
+                    Text("melhor!")
+                    
+                }
                 
-                Text("Você também pode obter uma estimativa dos preços dos itens da sua lista, ajudando a planejar suas compras melhor!")
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                .foregroundColor(.black)
+                .font(.system(size: 20, weight: .regular))
+                .position(x: 195, y: 105)
                 
-                Spacer()
+                
+
                 
                 Image("tela2")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 200)
+                    .frame(height: 240)
                     .padding()
+                    .position(x: 200, y: 95)
                 
                 Text("Para gerar sua lista, basta responder as próximas perguntas!")
+                    .font(.system(size: 20, weight: .regular))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
+                //    .position(x: 195, y: 100)
+                    .offset(x: 0, y: 18)
                 
                 NavigationLink(destination: QuestionView(viewModel: QuizViewModel())) {
                     Text("Iniciar")
-                        .padding()
+                        
+                        .font(.system(size: 17, weight: .regular))
+                        .padding(.vertical, 22)
+                        .padding(.horizontal, 55)
                        // .frame(maxWidth: .infinity)
                         .background(Color.corBotaoAtivado) //
                         .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding(.horizontal)
+                        .cornerRadius(12)
+                       // .padding(.horizontal, 40)
+                        .position(x: 196, y: 80)
                 }
                 
                 Spacer()
                 
             }
-        }
+       // }
     }
     
 }
