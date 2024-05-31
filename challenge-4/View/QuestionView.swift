@@ -23,7 +23,7 @@ struct QuestionView: View {
             
             
             
-            VStack {
+        VStack() {
                 
                 if viewModel.currentQuestionIndex < viewModel.questions.count {
                     VStack {
@@ -37,7 +37,7 @@ struct QuestionView: View {
                                         Circle()
                                             .fill(index < viewModel.currentQuestionIndex  //&&
                                                   //                                                viewModel.canMoveToNextQuestion
-                                                  ? Color.corBarraDeProgresso : Color.gray)
+                                                  ? Color.corBotaoAtivado : Color.gray)
                                             .frame(width: 40, height: 40)
                                         
                                         Image(systemName: "checkmark")
