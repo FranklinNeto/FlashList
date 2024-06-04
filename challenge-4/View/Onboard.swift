@@ -45,7 +45,7 @@ struct FirstPageView: View {
                     .position(x: 190, y: -100)
                 
                 
-                Text("O FlashList cria listas de compras personalizadas com base nas suas preferências e necessidades")
+                Text("O FlashList cria listas de compras alimentícias personalizadas com base nas suas preferências e necessidades")
                     .font(.system(size: 20, weight: .regular))
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)

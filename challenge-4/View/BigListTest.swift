@@ -323,21 +323,43 @@ struct BigListTest: View {
         }
     }
     
+//    var filteredBigList: [Category] {
+//        if searchText.isEmpty {
+//            return listaFiltrada
+//        } else {
+//            return listaFiltrada.map { category in
+//                let filteredProducts = category.list.filter { product in
+//                    product.name.lowercased().contains(searchText.lowercased())
+//                }
+//                return Category(name: category.name, list: filteredProducts)
+//            }
+//            .filter { category in
+//                !category.list.isEmpty
+//            }
+//        }
+//    }
+    
+    
     var filteredBigList: [Category] {
         if searchText.isEmpty {
             return listaFiltrada
         } else {
             return listaFiltrada.map { category in
+                // Filtrar produtos pelo início do nome
                 let filteredProducts = category.list.filter { product in
-                    product.name.lowercased().contains(searchText.lowercased())
+                    product.name.lowercased().hasPrefix(searchText.lowercased())
                 }
-                return Category(name: category.name, list: filteredProducts)
+                // Verificar se a categoria ou os produtos filtrados devem ser incluídos
+                let shouldIncludeCategory = category.name.lowercased().contains(searchText.lowercased())
+                return Category(name: category.name, list: shouldIncludeCategory ? category.list : filteredProducts)
             }
             .filter { category in
-                !category.list.isEmpty
+                // Incluir categorias que têm nome correspondente ou produtos filtrados
+                !category.list.isEmpty || category.name.lowercased().contains(searchText.lowercased())
             }
         }
     }
+
     
     
     func capturingUserFoodRestritions() {

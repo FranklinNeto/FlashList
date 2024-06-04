@@ -23,43 +23,37 @@ struct QuestionView: View {
             
             
             
-            VStack {
+        VStack() {
                 
                 if viewModel.currentQuestionIndex < viewModel.questions.count {
                     VStack {
                         HStack (spacing: 0) {
-                            ForEach(0..<4) { index in
-                                
+                            ForEach(0..<4 ) { index in
                                 
                                 HStack (spacing: 0){
                                     
                                     ZStack{
                                         Circle()
-                                            .fill(index < viewModel.currentQuestionIndex  //&&
-                                                  //                                                viewModel.canMoveToNextQuestion
-                                                  ? Color.corBarraDeProgresso : Color.gray)
+                                            .fill(index < viewModel.currentQuestionIndex
+                                                  ? Color.corBotaoAtivado : Color.gray)
                                             .frame(width: 40, height: 40)
                                         
                                         Image(systemName: "checkmark")
                                             .foregroundColor(.black)
                                     }
-                                    if index != 4 - 1 {
+                                  
+                                if index != viewModel.questions.count - 1 {
                                         Rectangle()
                                             .fill(/*index < viewModel.currentQuestionIndex ? Color.corBarraDeProgresso :*/ Color.corLinhaDeProgressoDesativada)
                                             .frame(width: 50,height: 1)
-                                        //   .frame(maxWidth: .infinity)
-                                    }
+                                   }
                                 }
-                                
                                 
                             }
                             
                         }
                         
-//                      .position(x: 165, y: 7)
                         .position(x: 165, y: 5)
-                        
-                        
                         .padding()
                         .frame(maxWidth: .infinity)
                         
@@ -140,9 +134,7 @@ struct QuestionView: View {
                         .frame(maxWidth: .infinity) // Garante que o VStack ocupe toda a largura disponível
                     }
                     .padding()
-                    //   .frame(height: 675)
-                    
-                    // Spacer()
+                  
                     HStack {
                         if viewModel.currentQuestionIndex > 0 {
                             Button(action: {
@@ -159,7 +151,6 @@ struct QuestionView: View {
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(Color.corBotaoAtivado, lineWidth: 4)
                                     )
-                                
                                 
                             }
                            
