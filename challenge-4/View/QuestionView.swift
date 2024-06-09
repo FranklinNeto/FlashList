@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @ObservedObject var viewModel: QuizViewModel
+    @ObservedObject var viewModel: QuestionViewModel
     
     
     
@@ -249,5 +249,5 @@ struct QuestionView: View {
     
 //}
 #Preview {
-    QuestionView(viewModel: QuizViewModel())
+    QuestionView(viewModel: QuestionViewModel())
 }

@@ -104,7 +104,7 @@ struct SecondPageView: View {
                 //    .position(x: 195, y: 100)
                     .offset(x: 0, y: 18)
                 
-                NavigationLink(destination: QuestionView(viewModel: QuizViewModel())) {
+                NavigationLink(destination: QuestionView(viewModel: QuestionViewModel())) {
                     Text("Iniciar")
                         
                         .font(.system(size: 17, weight: .regular))

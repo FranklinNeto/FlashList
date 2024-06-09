@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BigListTest: View {
-    @ObservedObject var viewModel: QuizViewModel
+    @ObservedObject var viewModel: QuestionViewModel
 
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
@@ -481,6 +481,6 @@ struct BigListTest: View {
     
 }
 #Preview {
-    BigListTest(viewModel: QuizViewModel())
+    BigListTest(viewModel: QuestionViewModel())
 }
 

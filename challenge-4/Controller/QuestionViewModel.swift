@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class QuizViewModel: ObservableObject {
+class QuestionViewModel: ObservableObject {
 
     @Published  var currentQuestionIndex: Int = 0
     @Published var selectedChoices: [String: [String]] = [:]
