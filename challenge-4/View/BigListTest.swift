@@ -262,30 +262,30 @@ struct BigListTest: View {
                 var shouldInclude = true
                 
                 if userVegan {
-                    shouldInclude = shouldInclude && product.isVegan
+                    shouldInclude = shouldInclude && product.foodRestrictions.contains(.vegan)
                 }
                 
                 if userLactoseIntolerant {
-                    shouldInclude = shouldInclude && !product.isLactose
+                    shouldInclude = shouldInclude && !product.foodRestrictions.contains(.lactose)
                 }
                 
                 if userGlutenIntolerant {
-                    shouldInclude = shouldInclude && !product.isGluten
+                    shouldInclude = shouldInclude && !product.foodRestrictions.contains(.gluten)
                 }
                 
                 
                 var shouldIncludeMeal = false
                      if cafeDaManha {
-                         shouldIncludeMeal = shouldIncludeMeal || product.isCafe
+                         shouldIncludeMeal = shouldIncludeMeal || product.foodPreferences.contains(.cafe)
                      }
                      if almoco {
-                         shouldIncludeMeal = shouldIncludeMeal || product.isAlmoco
+                         shouldIncludeMeal = shouldIncludeMeal || product.foodPreferences.contains(.almoco)
                      }
                      if lancheDaTarde {
-                         shouldIncludeMeal = shouldIncludeMeal || product.isLanche
+                         shouldIncludeMeal = shouldIncludeMeal || product.foodPreferences.contains(.lanche)
                      }
                      if jantar {
-                         shouldIncludeMeal = shouldIncludeMeal || product.isJanta
+                         shouldIncludeMeal = shouldIncludeMeal || product.foodPreferences.contains(.jantar)
                      }
                      
                      // Se alguma preferência de refeição foi marcada, verificamos se o produto atende a pelo menos uma delas
