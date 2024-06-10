@@ -12,73 +12,58 @@ struct BigListTest: View {
 
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
-            Product(name: "arroz", price: 800, amount: 1, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .kilogram),
-            Product(name: "feijão", price: 900, amount: 1, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .kilogram),
-            Product(name: "macarrão", price: 450, amount: 500, isLactose: false, isGluten: true, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "açucar", price: 800, amount: 1, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .kilogram),
-            Product(name: "café", price: 1000, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "leite", price: 1600, amount: 400, isLactose: true, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "óleo", price: 600, amount: 900, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .milliliter ),
-            Product(name: "ovos", price: 1390, amount: 12, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .unit),
-            Product(name: "pão", price: 1400, amount: 500, isLactose: false, isGluten: true, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "trigo", price: 560, amount: 1, isLactose: false, isGluten: true, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .kilogram)
+            Product(name: "arroz", price: 800, amount: 1, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .kilogram),
+            
+            Product(name: "feijão", price: 900, amount: 1, foodRestrictions: [.vegan],
+                    foodPreferences: [.jantar, .almoco], unidade: .kilogram),
+           
+            Product(name: "macarrão", price: 450, amount: 500, foodRestrictions: [.vegan, .gluten],
+                    foodPreferences: [.jantar, .almoco], unidade: .gram),
+           
+            Product(name: "açúcar", price: 800, amount: 1, foodRestrictions: [.vegan],
+                    foodPreferences: [.jantar, .almoco, .cafe, .lanche] , unidade: .kilogram),
+           
+            Product(name: "café", price: 1000, amount: 500, foodRestrictions: [.vegan],
+                    foodPreferences: [.cafe, .lanche], unidade: .gram),
+    
+            Product(name: "leite", price: 1600, amount: 400, foodRestrictions: [.lactose],
+                    foodPreferences: [.cafe, .lanche], unidade: .gram),
+        
+            Product(name: "óleo", price: 600, amount: 900, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .milliliter),
+            
+            Product(name: "ovos", price: 1390, amount: 12, foodRestrictions: [], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .unit),
+            
+            Product(name: "pão", price: 1400, amount: 500, foodRestrictions: [.vegan, .gluten], foodPreferences: [.cafe, .lanche], unidade: .gram),
+            
+            Product(name: "trigo", price: 560, amount: 1, foodRestrictions: [.vegan, .gluten], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .kilogram),
         ]),
-        Category(name: "frios", list: [
-            Product(name: "manteiga", price: 1200, amount: 200, isLactose: true, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .gram),
-            Product(name: "presunto", price: 1000, amount: 180, isLactose: false, isGluten: false, isVegan: false,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "queijo", price: 1000, amount: 180, isLactose: true, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .gram),
-            Product(name: "requeijão", price: 800, amount: 200, isLactose: true, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "iogurte", price: 600, amount: 510, isLactose: true, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram)
-        ]),
+        
+       Category(name: "frios", list: [
+             Product(name: "manteiga", price: 1200, amount: 200, foodRestrictions: [.lactose], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .gram),
+              Product(name: "presunto", price: 1000, amount: 180, foodRestrictions: [], foodPreferences: [.cafe, .lanche], unidade: .gram),
+               Product(name: "queijo", price: 1000, amount: 180, foodRestrictions: [.lactose], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .gram),
+               Product(name: "requeijão", price: 800, amount: 200, foodRestrictions: [.lactose], foodPreferences: [.cafe, .lanche], unidade: .gram),
+               Product(name: "iogurte", price: 600, amount: 510, foodRestrictions: [.lactose], foodPreferences: [.cafe, .lanche], unidade: .gram)
+           ]),
         Category(name: "verduras", list: [
-            Product(name: "alface", price: 800, amount: 200, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "banana", price: 1000, amount: 910, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .gram),
-            Product(name: "batata", price: 400, amount: 400, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "cebola", price: 500, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "limão", price: 200, amount: 200, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: true, isJanta: true, unidade: .gram),
-            Product(name: "maçã", price: 1100, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: false, unidade: .gram),
-            Product(name: "tomate", price: 500, amount: 400, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "uva", price: 1100, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: false, isLanche: true, isJanta: false, unidade: .gram),
-        ]),
-        Category(name: "proteínas", list: [
-            Product(name: "carne", price: 2000, amount: 500, isLactose: false, isGluten: false, isVegan: false,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "frango", price: 1500, amount: 500, isLactose: false, isGluten: false, isVegan: false,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "peixe", price: 2000, amount: 500, isLactose: false, isGluten: false, isVegan: false,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "soja", price: 1500, amount: 1, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: true, isJanta: true, unidade: .kilogram),
-            Product(name: "grão de bico", price: 1800, amount: 1, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: true, isJanta: true, unidade: .kilogram),
-            Product(name: "lentilha", price: 1390, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: false, isAlmoco: true, isLanche: false, isJanta: true, unidade: .gram),
-            Product(name: "tofu", price: 1560, amount: 500, isLactose: false, isGluten: false, isVegan: true,
-                    isCafe: true, isAlmoco: true, isLanche: true, isJanta: true, unidade: .gram),
-        ])
+                Product(name: "alface", price: 800, amount: 200, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "banana", price: 1000, amount: 910, foodRestrictions: [.vegan], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .gram),
+                Product(name: "batata", price: 400, amount: 400, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "cebola", price: 500, amount: 500, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "limão", price: 200, amount: 200, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco, .lanche], unidade: .gram),
+                Product(name: "maçã", price: 1100, amount: 500, foodRestrictions: [.vegan], foodPreferences: [.cafe, .almoco, .lanche], unidade: .gram),
+                Product(name: "tomate", price: 500, amount: 400, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "uva", price: 1100, amount: 500, foodRestrictions: [.vegan], foodPreferences: [.cafe, .lanche], unidade: .gram)
+            ]),
+            Category(name: "proteínas", list: [
+                Product(name: "carne", price: 2000, amount: 500, foodRestrictions: [], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "frango", price: 1500, amount: 500, foodRestrictions: [], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "peixe", price: 2000, amount: 500, foodRestrictions: [], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "soja", price: 1500, amount: 1, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco, .lanche], unidade: .kilogram),
+                Product(name: "grão de bico", price: 1800, amount: 1, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco, .lanche], unidade: .kilogram),
+                Product(name: "lentilha", price: 1390, amount: 500, foodRestrictions: [.vegan], foodPreferences: [.jantar, .almoco], unidade: .gram),
+                Product(name: "tofu", price: 1560, amount: 500, foodRestrictions: [.vegan], foodPreferences: [.cafe, .almoco, .lanche, .jantar], unidade: .gram)
+            ])
     ]
     
     @State private var selecao: UUID?

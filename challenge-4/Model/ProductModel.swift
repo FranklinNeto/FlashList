@@ -15,19 +15,29 @@ enum UnitType: String {
     case unit = "unidades"
 }
 
+enum FoodRestrictions: String {
+    
+    case lactose = "Intolerância à lactose"
+    case gluten = "Intolerância à glúten"
+    case vegan = "Vegano"
+    
+}
+
+enum FoodPreferences: String {
+    case cafe = "Refeições Matinais"
+    case almoco = "Almoço"
+    case lanche = "Refeições da Tarde"
+    case jantar = "Jantar e Ceia"
+}
+
 struct Product: Identifiable {
     let id = UUID()
     let name: String
     var price: Int
     var amount: Int
-    let isLactose: Bool
-    let isGluten: Bool
-    let isVegan: Bool
-    let isCafe: Bool
-    let isAlmoco: Bool
-    let isLanche: Bool
-    let isJanta: Bool
-    var unidade: UnitType // Usando o enum UnitType
+    var foodRestrictions: Set<FoodRestrictions>
+    var foodPreferences: Set<FoodPreferences>
+    var unidade: UnitType
     
     var priceTotal: Double = 1
 }
