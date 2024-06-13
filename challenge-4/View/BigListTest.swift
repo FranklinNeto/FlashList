@@ -10,6 +10,7 @@ import SwiftUI
 struct BigListTest: View {
     @ObservedObject var viewModel: QuizViewModel
 
+    #warning("Poderia ter separado esta propriedade em um Model!")
     @State var bigList: [Category] = [
         Category(name: "mercearia", list: [
             Product(name: "arroz", price: 800, amount: 1, isLactose: false, isGluten: false, isVegan: true,
@@ -393,6 +394,7 @@ struct BigListTest: View {
             if let listaDePreferencias = viewModel.selectedChoices["refeicao"] {
                 for preferencia in listaDePreferencias {
                     switch preferencia {
+                        #warning("Seria mais interessante serem um enum essas Strings aqui!")
                     case "Refeições Matinais":
                         cafeDaManha = true
                     case "Almoço":
@@ -420,6 +422,7 @@ struct BigListTest: View {
                     case "Moro com 1 pessoa":
                         multiplicadorPessoas = 2
                     case "Moro com 2 ou mais pessoas":
+                        #warning("Se forem umas 5 pessoas... Ta meio estranho esse multiplicador né?")
                         multiplicadorPessoas = 3
                     default:
                         break

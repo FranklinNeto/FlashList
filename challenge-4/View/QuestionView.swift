@@ -13,7 +13,7 @@ struct QuestionView: View {
     
     
     var body: some View {
-        
+        #warning("Pode apagar os comentários sem dó!")
 //        ZStack{
 //            
 //            Image("quest4")
@@ -58,6 +58,7 @@ struct QuestionView: View {
                         .frame(maxWidth: .infinity)
                         
                         VStack{
+                            #warning("O viewModel poderia ter uma func que cospe o text necessário!")
                             if viewModel.currentQuestionIndex + 1 == 1 || viewModel.currentQuestionIndex + 1 == 2 {
                                 Text("Pergunta \(viewModel.currentQuestionIndex + 1): selecione uma resposta")
                                    

@@ -1,5 +1,5 @@
 import SwiftUI
-
+#warning("Identação")
 struct FirstPageView: View {
     var body: some View {
         
@@ -21,6 +21,7 @@ struct FirstPageView: View {
                 
                
                 VStack{
+                    #warning("Poderia apenas quebrar a linha da String (\n)")
                     Text("Poupe tempo e simplifique suas")
                     Text("compras!")
                 }
@@ -61,7 +62,7 @@ struct FirstPageView: View {
    //    }
     }
 }
-
+#warning("Poderia separar em arquivos distintos")
 struct SecondPageView: View {
     var body: some View {
         

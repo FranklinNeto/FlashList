@@ -14,7 +14,7 @@ enum UnitType: String {
     case liter = "L"
     case unit = "unidades"
 }
-
+#warning("Mix de português com english")
 struct Product: Identifiable {
     let id = UUID()
     let name: String
