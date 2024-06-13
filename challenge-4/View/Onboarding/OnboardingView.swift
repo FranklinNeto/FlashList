@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-struct ContentView: View {
+struct OnboardingView: View {
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .corBotaoAtivado
@@ -24,6 +24,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    OnboardingView()
     
 }

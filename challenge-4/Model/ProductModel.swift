@@ -7,6 +7,23 @@
 
 import Foundation
 
+struct Product: Identifiable {
+    let id = UUID()
+    let name: String
+    var price: Int
+    var amount: Int
+    var foodRestrictions: Set<FoodRestrictions>
+    var foodPreferences: Set<FoodPreferences>
+    var unit: UnitType
+    var priceTotal: Double = 1
+}
+
+struct Category: Identifiable {
+    let id = UUID()
+    let name: String
+    let list: [Product]
+}
+
 enum UnitType: String {
     case gram = "g"
     case kilogram = "kg"
@@ -29,23 +46,3 @@ enum FoodPreferences: String {
     case lanche = "Refeições da Tarde"
     case jantar = "Jantar e Ceia"
 }
-
-struct Product: Identifiable {
-    let id = UUID()
-    let name: String
-    var price: Int
-    var amount: Int
-    var foodRestrictions: Set<FoodRestrictions>
-    var foodPreferences: Set<FoodPreferences>
-    var unidade: UnitType
-    
-    var priceTotal: Double = 1
-}
-
-struct Category: Identifiable {
-    let id = UUID()
-    let name: String
-    let list: [Product]
-}
-
-
