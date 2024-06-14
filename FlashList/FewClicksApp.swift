@@ -8,11 +8,10 @@
 import SwiftUI
 
 @main
-struct challenge_4App: App {
+struct FlashListApp: App {
     var body: some Scene {
         WindowGroup {
             OnboardingView()
         }
     }
-    
 }

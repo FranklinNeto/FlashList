@@ -17,7 +17,7 @@
                BlueprintIdentifier = "DD52DF312BF67D2600CCC2D1"
                BuildableName = "FlashList.app"
                BlueprintName = "FlashList"
-               ReferencedContainer = "container:flashList.xcodeproj">
+               ReferencedContainer = "container:FlashList.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,7 +46,7 @@
             BlueprintIdentifier = "DD52DF312BF67D2600CCC2D1"
             BuildableName = "FlashList.app"
             BlueprintName = "FlashList"
-            ReferencedContainer = "container:flashList.xcodeproj">
+            ReferencedContainer = "container:FlashList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,7 +63,7 @@
             BlueprintIdentifier = "DD52DF312BF67D2600CCC2D1"
             BuildableName = "FlashList.app"
             BlueprintName = "FlashList"
-            ReferencedContainer = "container:flashList.xcodeproj">
+            ReferencedContainer = "container:FlashList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

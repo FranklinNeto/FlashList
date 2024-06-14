@@ -13,7 +13,7 @@
 		3B97F8EE2C1B9ACF004DEB3E /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F8ED2C1B9ACF004DEB3E /* FirstPageView.swift */; };
 		3B97F8F02C1B9B1D004DEB3E /* SecondPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B97F8EF2C1B9B1D004DEB3E /* SecondPageView.swift */; };
 		3BE012B32BF8FCB000391547 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE012B22BF8FCB000391547 /* QuestionViewModel.swift */; };
-		DD52DF362BF67D2600CCC2D1 /* challenge_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */; };
+		DD52DF362BF67D2600CCC2D1 /* FewClicksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52DF352BF67D2600CCC2D1 /* FewClicksApp.swift */; };
 		DD52DF3C2BF67D2800CCC2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD52DF3B2BF67D2800CCC2D1 /* Assets.xcassets */; };
 		DD52DF3F2BF67D2800CCC2D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD52DF3E2BF67D2800CCC2D1 /* Preview Assets.xcassets */; };
 		DD8AA8072BFD2C6100A36BE4 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AA8062BFD2C6100A36BE4 /* QuestionModel.swift */; };
@@ -30,7 +30,7 @@
 		3B97F8EF2C1B9B1D004DEB3E /* SecondPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageView.swift; sourceTree = "<group>"; };
 		3BE012B22BF8FCB000391547 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		DD52DF322BF67D2600CCC2D1 /* FlashList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashList.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_4App.swift; sourceTree = "<group>"; };
+		DD52DF352BF67D2600CCC2D1 /* FewClicksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FewClicksApp.swift; sourceTree = "<group>"; };
 		DD52DF3B2BF67D2800CCC2D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD52DF3E2BF67D2800CCC2D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD8AA8062BFD2C6100A36BE4 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		DD52DF292BF67D2600CCC2D1 = {
 			isa = PBXGroup;
 			children = (
-				DD52DF342BF67D2600CCC2D1 /* challenge-4 */,
+				DD52DF342BF67D2600CCC2D1 /* FlashList */,
 				DD52DF332BF67D2600CCC2D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,17 +105,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD52DF342BF67D2600CCC2D1 /* challenge-4 */ = {
+		DD52DF342BF67D2600CCC2D1 /* FlashList */ = {
 			isa = PBXGroup;
 			children = (
-				DD52DF352BF67D2600CCC2D1 /* challenge_4App.swift */,
+				DD52DF352BF67D2600CCC2D1 /* FewClicksApp.swift */,
 				3BE012A22BF8F63C00391547 /* Model */,
 				3BE012A12BF8F55300391547 /* View */,
 				3BE012A32BF8F7AA00391547 /* Controller */,
 				DD52DF3D2BF67D2800CCC2D1 /* Preview Content */,
 				DD52DF3B2BF67D2800CCC2D1 /* Assets.xcassets */,
 			);
-			path = "challenge-4";
+			path = FlashList;
 			sourceTree = "<group>";
 		};
 		DD52DF3D2BF67D2800CCC2D1 /* Preview Content */ = {
@@ -161,7 +161,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD52DF2D2BF67D2600CCC2D1 /* Build configuration list for PBXProject "flashList" */;
+			buildConfigurationList = DD52DF2D2BF67D2600CCC2D1 /* Build configuration list for PBXProject "FlashList" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,7 +203,7 @@
 				3B97F8E92C1B64C4004DEB3E /* ListViewModel.swift in Sources */,
 				3B74F4D22BFE7F360088E333 /* BigListTest.swift in Sources */,
 				DD8AA8092BFD2CBE00A36BE4 /* ProductModel.swift in Sources */,
-				DD52DF362BF67D2600CCC2D1 /* challenge_4App.swift in Sources */,
+				DD52DF362BF67D2600CCC2D1 /* FewClicksApp.swift in Sources */,
 				3BE012B32BF8FCB000391547 /* QuestionViewModel.swift in Sources */,
 				3B97F8EE2C1B9ACF004DEB3E /* FirstPageView.swift in Sources */,
 				DD8AA8072BFD2C6100A36BE4 /* QuestionModel.swift in Sources */,
@@ -344,6 +344,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Flash List";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -374,6 +375,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Flash List";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,7 +397,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD52DF2D2BF67D2600CCC2D1 /* Build configuration list for PBXProject "flashList" */ = {
+		DD52DF2D2BF67D2600CCC2D1 /* Build configuration list for PBXProject "FlashList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD52DF402BF67D2800CCC2D1 /* Debug */,
