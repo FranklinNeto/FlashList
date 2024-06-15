@@ -9,8 +9,12 @@ import SwiftUI
 
 class QuestionViewModel: ObservableObject {
 
-    @Published  var currentQuestionIndex: Int = 0
+    @Published var currentQuestionIndex: Int = 0
     @Published var selectedChoices: [String: [String]] = [:]
+//    @Published var foodRestrictions =  Set<FoodRestrictions>()
+//    @Published var foodPreferences =  Set<FoodPreferences>()
+    
+
 
     let questions: [Question] = [
         Question(text: ["Você mora com quantas", "pessoas?"], choices: ["Moro sozinho", "Moro com 1 pessoa", "Moro com 2 ou mais pessoas"], key: "pessoas", multiple: false),

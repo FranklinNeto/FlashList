@@ -10,6 +10,8 @@ import SwiftUI
 struct QuestionView: View {
     @ObservedObject var viewModel: QuestionViewModel
     
+   
+    
     
     
     var body: some View {
@@ -97,9 +99,12 @@ struct QuestionView: View {
                         .position(x: 165, y: -30)
                         .padding()
                         
+                        
+                        
                         GeometryReader { geometry in
                             VStack {
                                 ForEach(viewModel.currentQuestion.choices, id: \.self) { choice in
+    
                                     Button(action: {
                                         viewModel.selectChoice(choice: choice)
                                         
@@ -131,7 +136,7 @@ struct QuestionView: View {
                             
                             
                         }
-                        .frame(maxWidth: .infinity) // Garante que o VStack ocupe toda a largura disponível
+                        .frame(maxWidth: .infinity)
                     }
                     .padding()
                   

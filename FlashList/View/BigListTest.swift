@@ -80,6 +80,10 @@ struct BigListTest: View {
     @State var lancheDaTarde: Bool = false
     @State var jantar: Bool = false
     
+   
+    
+    
+
     @State var multiplicadorPessoas: Int = 1  // Variável para armazenar o multiplicador de quantidade
     @State var multiplicadorFrequencia: Int = 1  // Variável para armazenar o multiplicador de frequencia
     

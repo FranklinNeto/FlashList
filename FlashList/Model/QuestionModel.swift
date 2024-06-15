@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Question {
+  //  let id = UUID()
     let text: [String]
     let choices: [String]
     let key: String
