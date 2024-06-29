@@ -37,31 +37,46 @@ class QuestionViewModel: ObservableObject {
         }
         return !selected.isEmpty
       }
-       
-    func selectChoice(choice: String) {
-            let key = currentQuestion.key
-            if currentQuestion.multiple {
-                // Para questões de múltipla escolha
-                if selectedChoices[key] == nil {
-                    selectedChoices[key] = [choice]
-                } else if let index = selectedChoices[key]?.firstIndex(of: choice) {
-                    selectedChoices[key]?.remove(at: index)
-                    if selectedChoices[key]?.isEmpty == true {
-                        selectedChoices.removeValue(forKey: key)
-                    }
-                } else {
-                    selectedChoices[key]?.append(choice)
+    
+    func selectSingleChoice(choice: String) {
+        let key = currentQuestion.key
+        if selectedChoices[key]?.first == choice {
+            selectedChoices.removeValue(forKey: key)
+        } else {
+            selectedChoices[key] = [choice]
+        }
+    }
+
+    func selectMultipleChoices(choice: String) {
+        let key = currentQuestion.key
+        if choice == "Não possuo" {
+            
+            selectedChoices[key] = [choice]
+        } else {
+           
+            selectedChoices[key]?.removeAll(where: { $0 == "Não possuo" })
+            
+            if selectedChoices[key] == nil {
+                selectedChoices[key] = [choice]
+            } else if let index = selectedChoices[key]?.firstIndex(of: choice) {
+                selectedChoices[key]?.remove(at: index)
+                if selectedChoices[key]?.isEmpty == true {
+                    selectedChoices.removeValue(forKey: key)
                 }
             } else {
-                // Para questões de escolha única
-                if selectedChoices[key]?.first == choice {
-                    selectedChoices.removeValue(forKey: key)
-                } else {
-                    selectedChoices[key] = [choice]
-                }
+                selectedChoices[key]?.append(choice)
             }
         }
+    }
 
+    func selectChoice(choice: String) {
+        if currentQuestion.multiple {
+            selectMultipleChoices(choice: choice)
+        } else {
+            selectSingleChoice(choice: choice)
+        }
+    }
+    
     func nextQuestion() {
         if canMoveToNextQuestion && currentQuestionIndex < questions.count {
             currentQuestionIndex += 1
