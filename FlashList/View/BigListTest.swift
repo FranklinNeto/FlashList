@@ -103,78 +103,11 @@ struct BigListTest: View {
         return total/100
     }
     
-    //    var body: some View {
-    //            NavigationView {
-    //                    List(selection: $selecao) {
-    //                        ForEach(filteredBigList) { category in
-    //                            Section(header: Text(category.name.capitalized)
-    //                                .font(.system(size: 20, weight: .bold))
-    //                                .foregroundColor(Color(.corBotaoAtivado))
-    //                            ) {
-    //                                ForEach(category.list) { product in
-    //                                    HStack (){
-    //                                        VStack(alignment: .leading){
-    //                                            Text("\(product.name.capitalized)")
-    //                                                .font(.system(size: 17))
-    //                                            Text("\(product.amount) \(product.amount > 1 ? "unidades" : "unidade")")
-    //                                                .font(.system(size: 13))
-    //                                                .foregroundColor(.gray)
-    //                                        }
-    //                                        Spacer()
-    //                                        Text("R$ \(String(format: "%.2f", product.priceTotal).replacingOccurrences(of: ".", with: ","))")
-    //                                            .font(.system(size: 17))
-    //                                            .foregroundColor(.gray)
-    //                                    }
-    //                                }
-    //                            }
-    //                        }
-    //                    }
-    //                    //.navigationTitle("Lista Gerada Para Você")
-    //                    .listStyle(GroupedListStyle())
-    //                    .onAppear {
-    //                        generatingPersonalizedList()
-    //                    }
-    //                    .searchable(text: $searchText, prompt: "Buscar...")
-    //                    .safeAreaInset(edge: .bottom) {
-    //                        VStack {
-    //                            Divider()
-    //                            HStack {
-    //                                VStack {
-    //                                    Text("Quantidade de itens")
-    //                                        .font(.system(size: 13))
-    //                                        .foregroundColor(.white)
-    //
-    //                                    Text("\(totalItems)")
-    //                                        .font(.system(size: 28, weight: .bold))
-    //                                        .foregroundColor(.white)
-    //                                        .bold()
-    //                                        .offset(y: 10)
-    //                                }
-    //                                Spacer()
-    //                                VStack {
-    //                                    Text("Valor total da lista")
-    //                                        .font(.custom("SF Pro", size: 13))
-    //                                        .foregroundColor(.white)
-    //                                    Text("R$ \(String(format: "%.2f", totalPrice).replacingOccurrences(of: ".", with: ","))")
-    //                                        .font(.system(size: 28, weight: .bold))
-    //                                        .foregroundColor(.white)
-    //                                        .bold()
-    //                                        .offset(y: 10)
-    //                                }
-    //                            }
-    //                            .padding()
-    //                            //.background(Color(red: 0.3, green: 0.6, blue: 0.2))
-    //                            .background(Color(.corBotaoAtivado))
-    //                            //.frame(width: 100, height: 100, alignment: 50)
-    //                        }
-    //                    }
-    //            }
-    //        }
         
         var body: some View {
                 NavigationView {
                     ZStack {
-                       Color.white.edgesIgnoringSafeArea(.all) // Fundo branco
+                       Color.white.edgesIgnoringSafeArea(.all)
 
                         List(selection: $selecao) {
                             ForEach(filteredBigList) { category in
@@ -312,22 +245,6 @@ struct BigListTest: View {
         }
     }
     
-//    var filteredBigList: [Category] {
-//        if searchText.isEmpty {
-//            return listaFiltrada
-//        } else {
-//            return listaFiltrada.map { category in
-//                let filteredProducts = category.list.filter { product in
-//                    product.name.lowercased().contains(searchText.lowercased())
-//                }
-//                return Category(name: category.name, list: filteredProducts)
-//            }
-//            .filter { category in
-//                !category.list.isEmpty
-//            }
-//        }
-//    }
-    
     
     var filteredBigList: [Category] {
         if searchText.isEmpty {
@@ -338,12 +255,12 @@ struct BigListTest: View {
                 let filteredProducts = category.list.filter { product in
                     product.name.lowercased().hasPrefix(searchText.lowercased())
                 }
-                // Verificar se a categoria ou os produtos filtrados devem ser incluídos
+                
                 let shouldIncludeCategory = category.name.lowercased().contains(searchText.lowercased())
                 return Category(name: category.name, list: shouldIncludeCategory ? category.list : filteredProducts)
             }
             .filter { category in
-                // Incluir categorias que têm nome correspondente ou produtos filtrados
+                
                 !category.list.isEmpty || category.name.lowercased().contains(searchText.lowercased())
             }
         }
